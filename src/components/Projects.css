@@ -1,0 +1,54 @@
+.projects {
+  padding: 2rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(6, 6, 6, 0.85);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+.section-heading .subtitle {
+  font-size: 0.85rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 0.5rem;
+}
+
+.section-heading h2 {
+  margin: 0;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+}
+
+.section-heading p {
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 46ch;
+  line-height: 1.6;
+  margin-top: 0.75rem;
+}
+
+.project-grid {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.project-grid article {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 1.2rem;
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.02);
+  min-height: 160px;
+}
+
+.project-grid h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.2rem;
+}
+
+.project-grid p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+}
+

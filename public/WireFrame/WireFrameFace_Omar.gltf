@@ -1,0 +1,198 @@
+{
+  "asset": {
+    "generator": "Khronos glTF Blender I/O v3.2.43",
+    "version": "2.0"
+  },
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Scene",
+      "nodes": [
+        0,
+        1
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "mesh": 0,
+      "name": "BaseMesh_Man_Simple",
+      "rotation": [
+        0.01215119194239378,
+        0.7070023417472839,
+        -0.7070024013519287,
+        0.012151189148426056
+      ]
+    },
+    {
+      "name": "BezierCircle",
+      "scale": [
+        33.831077575683594,
+        33.831077575683594,
+        33.831077575683594
+      ]
+    }
+  ],
+  "animations": [
+    {
+      "channels": [
+        {
+          "sampler": 0,
+          "target": {
+            "node": 0,
+            "path": "translation"
+          }
+        },
+        {
+          "sampler": 1,
+          "target": {
+            "node": 0,
+            "path": "rotation"
+          }
+        }
+      ],
+      "name": "BaseMesh_Man_SimpleAction.001",
+      "samplers": [
+        {
+          "input": 4,
+          "interpolation": "LINEAR",
+          "output": 5
+        },
+        {
+          "input": 4,
+          "interpolation": "LINEAR",
+          "output": 6
+        }
+      ]
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "name": "Default OBJ",
+      "pbrMetallicRoughness": {
+        "metallicFactor": 0,
+        "roughnessFactor": 0.3529411852359772
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "BaseMesh_Man_Simple",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TEXCOORD_0": 2
+          },
+          "indices": 3,
+          "material": 0
+        }
+      ]
+    }
+  ],
+  "accessors": [
+    {
+      "bufferView": 0,
+      "componentType": 5126,
+      "count": 12288,
+      "max": [
+        8.642374992370605,
+        11.713568687438965,
+        11.69165325164795
+      ],
+      "min": [
+        -0.018125375732779503,
+        -10.922103881835938,
+        -13.284591674804688
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 12288,
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 12288,
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5123,
+      "count": 18432,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 4,
+      "componentType": 5126,
+      "count": 141,
+      "max": [
+        5.833333333333333
+      ],
+      "min": [
+        0
+      ],
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 5,
+      "componentType": 5126,
+      "count": 141,
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 6,
+      "componentType": 5126,
+      "count": 141,
+      "type": "VEC4"
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 147456,
+      "byteOffset": 0
+    },
+    {
+      "buffer": 0,
+      "byteLength": 147456,
+      "byteOffset": 147456
+    },
+    {
+      "buffer": 0,
+      "byteLength": 98304,
+      "byteOffset": 294912
+    },
+    {
+      "buffer": 0,
+      "byteLength": 36864,
+      "byteOffset": 393216
+    },
+    {
+      "buffer": 0,
+      "byteLength": 564,
+      "byteOffset": 430080
+    },
+    {
+      "buffer": 0,
+      "byteLength": 1692,
+      "byteOffset": 430644
+    },
+    {
+      "buffer": 0,
+      "byteLength": 2256,
+      "byteOffset": 432336
+    }
+  ],
+  "buffers": [
+    {
+      "uri": "WireFrameFace_Omar_data.bin",
+      "byteLength": 434592
+    }
+  ]
+}

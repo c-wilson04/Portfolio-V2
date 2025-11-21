@@ -1,0 +1,23 @@
+:root {
+  font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+  font-size: 16px;
+  background-color: #000;
+  color: #f8f8f8;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #000;
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+}
