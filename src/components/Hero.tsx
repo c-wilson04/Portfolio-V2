@@ -21,17 +21,25 @@ export default function Hero() {
     }
     model.rotation.y += 0.01;
     model.rotation.x += 0.01;
-    model.rotation.z += 0.01;
+    model.rotation.z += 0.012;
+  }, []);
+  const rotateHeroModel2 = useCallback((model: THREE.Object3D | null) => {
+    if (!model) {
+      return;
+    }
+    model.rotation.y += 0.01;
   }, []);
 
   const addHeroLights = useCallback((scene: THREE.Scene) => {
     const rectLight = new THREE.RectAreaLight(0xffffff, 12, 32, 18);
-    rectLight.position.set(0, -13, 0);
+    rectLight.position.set(0, -15, 0);
     rectLight.lookAt(0, 0, 0);
-    const rectLight2 = new THREE.RectAreaLight(0xffffff, 14, 32, 18);
+    const rectLight2 = new THREE.RectAreaLight(0xffffff, 12, 32, 18);
     rectLight2.position.set(0, 13, 0);
     rectLight2.lookAt(0, 0, 0);
-    scene.add(rectLight, rectLight2);
+    const rectLight3 = new THREE.AmbientLight(0xffffff, 0.8);
+    rectLight3.position.set(0, 0, 0);
+    scene.add(rectLight, rectLight2, rectLight3);
   }, []);
 
   return (
@@ -39,11 +47,12 @@ export default function Hero() {
       <div className="canvas-stack">
         <div className="canvas-container canvas-container1">
           <SceneCanvas
-            modelPath="https://drive.google.com/file/d/125oRKxusOcHH7wZjMPeU8EfmgNy0c2pX/view?usp=drive_link"
-            scale={5}
+            modelPath="https://pub-94d5fc19683a4f7e9f3c4c565d835ee1.r2.dev/GraffitiPlant.glb"
+            scale={80}
             includeTorus
             setupLights={addHeroLights}
             animateModel={rotateHeroModel}
+            animateModel2={rotateHeroModel2}
           />
         </div>
       </div>

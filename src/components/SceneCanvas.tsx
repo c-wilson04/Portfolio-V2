@@ -2,7 +2,6 @@ import { useEffect, useRef } from "react";
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import "./SceneCanvas.css";
-import getModelFromGoogleDrive from "../services/getModelFromGoogleDrive";
 
 type SceneCanvasProps = {
   modelPath: string;
@@ -10,6 +9,7 @@ type SceneCanvasProps = {
   scale?: number;
   setupLights?: (scene: THREE.Scene) => void;
   animateModel?: (model: THREE.Object3D | null) => void;
+  animateModel2?: (model: THREE.Object3D | null) => void;
   includeTorus?: boolean;
 };
 
@@ -19,6 +19,7 @@ export default function SceneCanvas({
   scale = 1,
   setupLights,
   animateModel,
+  animateModel2,
   includeTorus = false,
 }: SceneCanvasProps) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -44,33 +45,14 @@ export default function SceneCanvas({
     camera.position.setZ(30);
     camera.position.setX(0);
 
-    const baseLight = new THREE.PointLight(0xffffff, 1.5);
-    baseLight.position.set(10, 20, 0);
-    scene.add(baseLight);
-
     setupLights?.(scene);
-
-    let torus: THREE.Mesh | null = null;
-    if (includeTorus) {
-      const torusMaterial = new THREE.MeshBasicMaterial({
-        color: 0xfc9803,
-        wireframe: true,
-      });
-      const torusGeometry = new THREE.TorusGeometry(15.4, 3, 9, 100);
-      torus = new THREE.Mesh(torusGeometry, torusMaterial);
-      torus.position.set(0, 0, 0);
-      scene.add(torus);
-    }
 
     const loader = new GLTFLoader();
     let loadedModel: THREE.Object3D | null = null;
+    let loadedModel2: THREE.Object3D | null = null;
 
-    const modelResult = getModelFromGoogleDrive(modelPath)
-    if(modelResult?.status == "failed"){}
-    else{
-    const url = modelResult?.url
     loader.load(
-      url!,
+      modelPath,
       (gltf) => {
         scene.add(gltf.scene);
         loadedModel = gltf.scene.children[0] ?? gltf.scene;
@@ -84,7 +66,21 @@ export default function SceneCanvas({
         console.error(error);
       }
     );
-  }
+    loader.load(
+      modelPath,
+      (gltf) => {
+        scene.add(gltf.scene);
+        loadedModel2 = gltf.scene.children[0] ?? gltf.scene;
+        if (loadedModel2) {
+          loadedModel2.position.set(0, -8, 0);
+          loadedModel2.scale.setScalar(7);
+        }
+      },
+      undefined,
+      (error) => {
+        console.error(error);
+      }
+    );
 
     const resize = () => {
       const width = container.clientWidth;
@@ -101,10 +97,8 @@ export default function SceneCanvas({
 
     const animate = () => {
       frameId = requestAnimationFrame(animate);
-      if (torus) {
-        torus.rotation.y += 0.01;
-      }
       animateModel?.(loadedModel);
+      animateModel2?.(loadedModel2);
       renderer.render(scene, camera);
     };
 
@@ -119,10 +113,6 @@ export default function SceneCanvas({
   }, [animateModel, modelPath, scale, setupLights, includeTorus]);
 
   return (
-    <canvas
-      ref={canvasRef}
-      className={`scene-canvas ${className}`.trim()}
-    />
+    <canvas ref={canvasRef} className={`scene-canvas ${className}`.trim()} />
   );
 }
-
