@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import "./SceneCanvas.css";
+import getModelFromGoogleDrive from "../services/getModelFromGoogleDrive";
 
 type SceneCanvasProps = {
   modelPath: string;
@@ -28,7 +29,6 @@ export default function SceneCanvas({
     if (!canvas || !container) {
       return;
     }
-
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(
       74,
@@ -65,8 +65,12 @@ export default function SceneCanvas({
     const loader = new GLTFLoader();
     let loadedModel: THREE.Object3D | null = null;
 
+    const modelResult = getModelFromGoogleDrive(modelPath)
+    if(modelResult?.status == "failed"){}
+    else{
+    const url = modelResult?.url
     loader.load(
-      modelPath,
+      url!,
       (gltf) => {
         scene.add(gltf.scene);
         loadedModel = gltf.scene.children[0] ?? gltf.scene;
@@ -80,6 +84,7 @@ export default function SceneCanvas({
         console.error(error);
       }
     );
+  }
 
     const resize = () => {
       const width = container.clientWidth;

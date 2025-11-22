@@ -39,8 +39,8 @@ export default function Hero() {
       <div className="canvas-stack">
         <div className="canvas-container canvas-container1">
           <SceneCanvas
-            modelPath="/Car/scene.gltf"
-            scale={4}
+            modelPath="https://drive.google.com/file/d/125oRKxusOcHH7wZjMPeU8EfmgNy0c2pX/view?usp=drive_link"
+            scale={5}
             includeTorus
             setupLights={addHeroLights}
             animateModel={rotateHeroModel}
