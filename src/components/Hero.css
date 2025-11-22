@@ -30,6 +30,46 @@
   margin: 0.3rem 0;
 }
 
+.animated-name {
+  position: relative;
+  display: inline-block;
+  text-decoration: underline;
+  text-decoration-color: #ff7b00;
+  text-decoration-thickness: 5px;
+  text-underline-offset: 8px;
+  animation: fadeText 8s ease-in-out infinite;
+}
+
+.animated-name::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #ff7b00, #ff9500);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+@keyframes fadeText {
+  0%, 15% {
+    opacity: 0;
+  }
+  25%{
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  75%{
+    opacity: 1;
+  }
+  85%, 100% {
+    opacity: 0;
+}
+}
+
 .hero-kicker {
   letter-spacing: 0.5em;
   text-transform: uppercase;

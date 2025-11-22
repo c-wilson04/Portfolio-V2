@@ -5,7 +5,8 @@ import Navbar from "../components/Navbar";
 import { getBlogPostBySlug } from "../data/blogPosts";
 import { navLinks } from "../data/navLinks";
 import { useFontAwesomeKit } from "../hooks/useFontAwesomeKit";
-import { fetchBlogPost, RemoteBlogPost } from "../services/blogAPI";
+import { fetchBlogPost } from "../services/blogAPI";
+import type { RemoteBlogPost } from "../services/blogAPI";
 import "./BlogPostPage.css";
 
 function getSlugFromSearch() {
@@ -13,6 +14,7 @@ function getSlugFromSearch() {
     return null;
   }
   const params = new URLSearchParams(window.location.search);
+  console.log(params.get("slug"));
   return params.get("slug");
 }
 
@@ -45,6 +47,7 @@ export default function BlogPostPage() {
         onLinkClick={closeBurger}
       />
       <main className="blog-post-page">
+      <p>{remotePost?.meta.title}</p>
         {remotePost || fallbackPost ? (
           <article>
             {remotePost?.meta.hero && (
@@ -58,11 +61,12 @@ export default function BlogPostPage() {
                 {remotePost ? remotePost.meta.date : fallbackPost?.date}
               </p>
               <div className="topic-row">
-                {(remotePost ? remotePost.meta.topics : fallbackPost?.topics ?? []).map(
-                  (topic) => (
-                    <span key={topic}>{topic}</span>
-                  ),
-                )}
+                {(remotePost
+                  ? remotePost.meta.topics
+                  : fallbackPost?.topics ?? []
+                ).map((topic) => (
+                  <span key={topic}>{topic}</span>
+                ))}
               </div>
             </div>
             <h1>{remotePost ? remotePost.meta.title : fallbackPost?.title}</h1>
@@ -89,4 +93,3 @@ export default function BlogPostPage() {
     </>
   );
 }
-

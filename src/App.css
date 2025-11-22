@@ -1,8 +1,29 @@
 .app-shell {
   min-height: 100vh;
   color: #f5f5f5;
-  background: radial-gradient(circle at top, #1b1b1b, #050505 60%);
+  background: linear-gradient(
+    135deg,
+    #000000 0%,
+    #1a1a1a 25%,
+    #bb7456 50%,
+    #1a1a1a 75%,
+    #ffffff 100%
+  );
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
   font-family: "Space Grotesk", "Inter", system-ui, sans-serif;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 main {

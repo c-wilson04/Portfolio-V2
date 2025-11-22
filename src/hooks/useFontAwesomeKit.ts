@@ -2,7 +2,7 @@ import { useEffect } from "react"
 
 export function useFontAwesomeKit() {
   useEffect(() => {
-    if (document.querySelector('script[data-kit="font-awesome"]')) {
+    if (!document.body || document.querySelector('script[data-kit="font-awesome"]')) {
       return
     }
     const script = document.createElement("script")
@@ -12,7 +12,9 @@ export function useFontAwesomeKit() {
     script.async = true
     document.body.appendChild(script)
     return () => {
-      document.body.removeChild(script)
+      if (document.body && document.body.contains(script)) {
+        document.body.removeChild(script)
+      }
     }
   }, [])
 }

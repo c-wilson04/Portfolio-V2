@@ -25,13 +25,19 @@
 }
 
 .blog-grid article {
-  padding: 1.25rem;
+  padding: 1.5rem;
   background: rgba(0, 0, 0, 0.45);
   border-radius: 0.85rem;
   border: 1px solid rgba(255, 255, 255, 0.08);
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.75rem;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.blog-grid article:hover {
+  border-color: rgba(255, 123, 0, 0.3);
+  transform: translateY(-4px);
 }
 
 .blog-grid h3 {
@@ -64,11 +70,51 @@
   color: rgba(255, 255, 255, 0.6);
 }
 
-.read-link {
-  margin-top: auto;
+.blog-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #ff7b00, #ff9500);
+  color: #fff;
   text-decoration: none;
-  color: #ff7b00;
-  font-weight: 600;
+  border-radius: 999px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 123, 0, 0.3);
+  align-self: flex-start;
+  margin-top: auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.blog-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.blog-btn:hover::before {
+  left: 100%;
+}
+
+.blog-btn:hover {
+  transform: translateX(4px);
+  box-shadow: 0 6px 20px rgba(255, 123, 0, 0.5);
+}
+
+.blog-btn svg {
+  transition: transform 0.3s ease;
+}
+
+.blog-btn:hover svg {
+  transform: translateX(4px);
 }
 
 .blog-cta {

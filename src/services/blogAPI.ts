@@ -1,6 +1,5 @@
-import matter from "gray-matter"
-import { BLOG_INDEX_URL, BLOG_POST_RAW_BASE } from "../config/blogSource"
-import { blogPosts, BlogPost } from "../data/blogPosts"
+import { BLOG_INDEX_URL } from "../config/blogSource"
+import { blogPosts } from "../data/blogPosts"
 
 export type BlogMeta = {
   slug: string
@@ -35,23 +34,18 @@ export async function fetchBlogIndex(): Promise<BlogMeta[]> {
 }
 
 export async function fetchBlogPost(slug: string): Promise<RemoteBlogPost> {
-  const response = await fetch(`${BLOG_POST_RAW_BASE}${slug}.md`)
-  if (!response.ok) {
-    throw new Error("Unable to download blog post")
+  // Fetch the index to get metadata
+  const index = await fetchBlogIndex()
+  const post = index.find((p) => p.slug === slug)
+  
+  if (!post) {
+    throw new Error("Post not found in index")
   }
-  const text = await response.text()
-  const parsed = matter(text)
-  const meta = {
-    slug,
-    title: parsed.data.title ?? slug,
-    date: parsed.data.date ?? "",
-    excerpt: parsed.data.excerpt ?? "",
-    hero: parsed.data.hero ?? "",
-    topics: Array.isArray(parsed.data.topics) ? parsed.data.topics : [],
-  }
+  
+  // Return the metadata from index.json with excerpt as body
   return {
-    meta,
-    body: parsed.content,
+    meta: post,
+    body: post.excerpt,
   }
 }
 

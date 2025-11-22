@@ -24,6 +24,11 @@ const mediaLinks = [
     href: "https://www.instagram.com/qwrldvisuals/",
     icon: "fa-brands fa-instagram",
   },
+  {
+    label: "YouTube",
+    href: "https://www.youtube.com/@yeadattq", // Add your YouTube channel URL
+    icon: "fa-brands fa-youtube",
+  },
 ];
 
 function App() {

@@ -1,9 +1,20 @@
-import { useCallback } from "react";
+import { useCallback, useEffect, useState } from "react";
 import * as THREE from "three";
 import SceneCanvas from "./SceneCanvas";
 import "./Hero.css";
 
 export default function Hero() {
+  const [nameText, setNameText] = useState("Charles Wilson");
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setNameText((prev) =>
+        prev === "Charles Wilson" ? "Q.Wrld" : "Charles Wilson"
+      );
+    }, 8000); // Switch every 8 seconds
+    return () => clearInterval(interval);
+  }, []);
+
   const rotateHeroModel = useCallback((model: THREE.Object3D | null) => {
     if (!model) {
       return;
@@ -11,13 +22,6 @@ export default function Hero() {
     model.rotation.y += 0.01;
     model.rotation.x += 0.01;
     model.rotation.z += 0.01;
-  }, []);
-
-  const rotateWireframeModel = useCallback((model: THREE.Object3D | null) => {
-    if (!model) {
-      return;
-    }
-    model.rotation.z -= 0.01;
   }, []);
 
   const addHeroLights = useCallback((scene: THREE.Scene) => {
@@ -30,42 +34,26 @@ export default function Hero() {
     scene.add(rectLight, rectLight2);
   }, []);
 
-  const addWireframeLights = useCallback((scene: THREE.Scene) => {
-    const pointLight = new THREE.PointLight(0xffffff, 1.2);
-    pointLight.position.set(15, 5, 5);
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
-    ambientLight.position.set(15, 5, 5);
-    scene.add(pointLight, ambientLight);
-  }, []);
-
   return (
     <section className="hero" id="AboutMe_">
       <div className="canvas-stack">
         <div className="canvas-container canvas-container1">
           <SceneCanvas
             modelPath="/Car/scene.gltf"
-            scale={5}
+            scale={4}
             includeTorus
             setupLights={addHeroLights}
             animateModel={rotateHeroModel}
           />
         </div>
-        <div className="canvas-container canvas-container2">
-          <SceneCanvas
-            modelPath="/WireFrame/WireFrameFace_Omar.gltf"
-            scale={2}
-            setupLights={addWireframeLights}
-            animateModel={rotateWireframeModel}
-          />
-        </div>
       </div>
-        <div className="hero-copy">
-          <p className="hero-kicker">3D Artist / Data Scientist / Developer</p>
-          <h1>Charles Wilson</h1>
-          <p className="hero-subcopy">
-            If I had a single talent, it wouldn't be fun—so I create, analyze,
-            and build experiences that make the world feel a little more human.
-          </p>
+      <div className="hero-copy">
+        <p className="hero-kicker">3D Artist / Data Scientist / Developer</p>
+        <h1 className="animated-name">{nameText}</h1>
+        <p className="hero-subcopy">
+          If I had a single talent, it wouldn't be fun—so I create, analyze, and
+          build experiences that make the world feel a little more human.
+        </p>
         <div className="hero-links">
           <a className="hero-link" href="#Contact_">
             Let's connect
