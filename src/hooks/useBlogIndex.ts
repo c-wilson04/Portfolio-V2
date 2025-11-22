@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { fetchBlogIndex, fallbackMeta, BlogMeta } from "../services/blogAPI"
+import { fetchBlogIndex, fallbackMeta, type BlogMeta } from "../services/blogAPI"
 
 export function useBlogIndex() {
   const [posts, setPosts] = useState<BlogMeta[]>(fallbackMeta)

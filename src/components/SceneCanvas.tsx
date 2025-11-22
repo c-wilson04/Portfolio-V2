@@ -57,7 +57,7 @@ export default function SceneCanvas({
         scene.add(gltf.scene);
         loadedModel = gltf.scene.children[0] ?? gltf.scene;
         if (loadedModel) {
-          loadedModel.scale.setScalar(scale);
+          loadedModel.scale.set(scale, scale, scale);
           loadedModel.position.set(0, 0, 0);
         }
       },
@@ -73,7 +73,7 @@ export default function SceneCanvas({
         loadedModel2 = gltf.scene.children[0] ?? gltf.scene;
         if (loadedModel2) {
           loadedModel2.position.set(0, -8, 0);
-          loadedModel2.scale.setScalar(7);
+          loadedModel2.scale.set(7, 7, 7);
         }
       },
       undefined,
