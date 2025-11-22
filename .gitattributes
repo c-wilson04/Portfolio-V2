@@ -1,0 +1,10 @@
+public/Car/**/*.gltf filter=lfs diff=lfs merge=lfs -text
+public/Car/**/*.bin filter=lfs diff=lfs merge=lfs -text
+public/Car/textures/* filter=lfs diff=lfs merge=lfs -text
+public/WireFrame/**/*.gltf filter=lfs diff=lfs merge=lfs -text
+public/WireFrame/**/*.bin filter=lfs diff=lfs merge=lfs -text
+public/Car/scene.bin filter=lfs diff=lfs merge=lfs -text
+public/Car/textures/*.jpeg filter=lfs diff=lfs merge=lfs -text
+public/Car/textures/*.png filter=lfs diff=lfs merge=lfs -text
+public/WireFrame/*.glb filter=lfs diff=lfs merge=lfs -text
+public/WireFrame/*.bin filter=lfs diff=lfs merge=lfs -text
