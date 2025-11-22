@@ -21,7 +21,7 @@ export default function Navbar({
   return (
     <>
       <header className="navbar">
-        <a className="title" href="/">
+        <a className="title" href="/Portfolio-V2/">
           /Q.Wrld
         </a>
         <div className="items">

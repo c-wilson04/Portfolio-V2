@@ -1,8 +1,8 @@
-import "./BlogSection.css"
-import { useBlogIndex } from "../hooks/useBlogIndex"
+import "./BlogSection.css";
+import { useBlogIndex } from "../hooks/useBlogIndex";
 
 export default function BlogSection() {
-  const posts = useBlogIndex()
+  const posts = useBlogIndex();
 
   return (
     <section className="blog" id="Blog_">
@@ -25,7 +25,10 @@ export default function BlogSection() {
                 <span key={topic}>{topic}</span>
               ))}
             </div>
-            <a className="blog-btn" href={`/blog-post.html?slug=${post.slug}`}>
+            <a
+              className="blog-btn"
+              href={`/Portfolio-V2/blog-post.html?slug=${post.slug}`}
+            >
               <span>Read Post</span>
               <svg
                 width="16"
@@ -47,11 +50,10 @@ export default function BlogSection() {
         ))}
       </div>
       <div className="blog-cta">
-        <a className="hero-link" href="/blog.html">
+        <a className="hero-link" href="/Portfolio-V2/blog.html">
           View full blog
         </a>
       </div>
     </section>
-  )
+  );
 }
-

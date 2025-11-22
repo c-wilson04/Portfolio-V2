@@ -45,7 +45,7 @@ export default function BlogPage() {
               <p>{post.excerpt}</p>
               <a
                 className="blog-btn"
-                href={`/blog-post.html?slug=${post.slug}`}
+                href={`/Portfolio-V2/blog-post.html?slug=${post.slug}`}
               >
                 <span>Read Post</span>
                 <svg

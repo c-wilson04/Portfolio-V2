@@ -48,7 +48,7 @@ export default function Hero() {
         <div className="canvas-container canvas-container1">
           <SceneCanvas
             modelPath="https://pub-94d5fc19683a4f7e9f3c4c565d835ee1.r2.dev/GraffitiPlant.glb"
-            scale={80}
+            scale={85}
             includeTorus
             setupLights={addHeroLights}
             animateModel={rotateHeroModel}

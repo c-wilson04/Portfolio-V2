@@ -84,7 +84,7 @@ export default function BlogPostPage() {
         ) : (
           <div className="post-missing">
             <p>We couldn’t find that post.</p>
-            <a className="hero-link" href="/blog.html">
+            <a className="hero-link" href="/Portfolio-V2/blog.html">
               Return to blog index
             </a>
           </div>
