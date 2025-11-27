@@ -13,6 +13,7 @@ export type BlogMeta = {
 export type RemoteBlogPost = {
   meta: BlogMeta
   body: string
+  content: string
 }
 
 const fallbackMeta: BlogMeta[] = blogPosts.map((post) => ({
