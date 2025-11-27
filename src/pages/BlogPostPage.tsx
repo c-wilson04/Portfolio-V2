@@ -75,7 +75,7 @@ export default function BlogPostPage() {
               className="markdown-body"
             >
               {remotePost
-                ? remotePost.body
+                ? remotePost.content
                 : fallbackPost
                 ? fallbackPost.content.join("\n\n")
                 : ""}
