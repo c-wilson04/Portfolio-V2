@@ -46,7 +46,7 @@ export async function fetchBlogPost(slug: string): Promise<RemoteBlogPost> {
   return {
     meta: post,
     body: post.excerpt,
-    content: string,
+    content: post.content,
   }
 }
 
