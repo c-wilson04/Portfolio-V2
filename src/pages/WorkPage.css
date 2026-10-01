@@ -1,0 +1,202 @@
+.work-page {
+  min-height: 100vh;
+  padding: 4rem 6vw;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background: linear-gradient(
+    135deg,
+    #000000 0%,
+    #1a1a1a 25%,
+    #bb7456 50%,
+    #1a1a1a 75%,
+    #ffffff 100%
+  );
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  color: #f5f5f5;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.work-page header {
+  max-width: 720px;
+}
+
+.work-page header h1 {
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  margin: 0.5rem 0;
+}
+
+.work-page header p {
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.6;
+}
+
+.work-page .subtitle {
+  margin: 0;
+  font-size: 0.85rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.work-card {
+  padding: 2rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(6, 6, 6, 0.85);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+.work-timeline {
+  position: relative;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.work-timeline::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 11px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.work-timeline button {
+  all: unset;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-height: 44px;
+  width: 100%;
+}
+
+.work-timeline button:focus-visible {
+  outline: 2px solid #ff9500;
+  outline-offset: 4px;
+}
+
+.work-timeline .dot {
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  border: 2px solid #ff7b00;
+  background: #060606;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.work-timeline button:hover .dot {
+  transform: scale(1.15);
+}
+
+.work-timeline button.on .dot {
+  background: #ff7b00;
+}
+
+.work-timeline .when {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.work-timeline .name {
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.work-timeline button.on .name {
+  color: #ff9500;
+}
+
+.work-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.work-meta .when {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.work-meta .chip {
+  padding: 0.2rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  background: linear-gradient(135deg, #ff7b00, #ff9500);
+  color: #fff;
+}
+
+.work-detail h2 {
+  margin: 1rem 0 0.5rem;
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+}
+
+.work-detail .what {
+  margin: 0 0 1.5rem;
+  max-width: 62ch;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.work-grid > div {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.02);
+  padding: 1.25rem;
+}
+
+.work-grid h3 {
+  margin: 0 0 0.5rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #ff9500;
+}
+
+.work-grid p,
+.work-grid ul {
+  margin: 0;
+  line-height: 1.55;
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.work-grid ul {
+  padding-left: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.work-actions {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}

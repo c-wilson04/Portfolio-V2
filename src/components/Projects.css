@@ -158,3 +158,17 @@
   display: inline-flex;
   align-items: center;
 }
+
+.project-status {
+  margin: 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #ff9500;
+}
+
+.project-role {
+  margin: 0;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.85);
+}
