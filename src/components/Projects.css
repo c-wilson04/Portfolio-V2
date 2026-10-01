@@ -172,3 +172,15 @@
   font-size: 0.85rem;
   color: rgba(255, 255, 255, 0.85);
 }
+
+.github-repos {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.github-repos a {
+  font-weight: 500;
+}

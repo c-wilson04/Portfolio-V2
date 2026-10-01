@@ -9,3 +9,29 @@ body {
   min-height: 100vh;
 }
 
+
+/* Plain links: Q.Wrld orange instead of browser blue/purple.
+   :where() keeps specificity at zero so buttons and nav links keep their own colours. */
+:where(a) {
+  color: #ff9500;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 149, 0, 0.35);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.25em;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+:where(a:visited) {
+  color: #e08a2e;
+}
+
+:where(a:hover) {
+  color: #ffb84d;
+  text-decoration-color: currentColor;
+}
+
+:where(a:focus-visible) {
+  outline: 2px solid #ff9500;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
