@@ -10,6 +10,7 @@ export default defineConfig({
         main: './index.html',
         blog: './blog.html',
         blogPost: './blog-post.html',
+        work: './work.html',
       },
     },
   },

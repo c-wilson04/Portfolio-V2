@@ -10,6 +10,7 @@ type NavbarProps = {
   isBurgerOpen: boolean;
   toggleMenu: () => void;
   onLinkClick: () => void;
+  onLogoTap?: () => void;
 };
 
 export default function Navbar({
@@ -17,11 +18,20 @@ export default function Navbar({
   isBurgerOpen,
   toggleMenu,
   onLinkClick,
+  onLogoTap,
 }: NavbarProps) {
   return (
     <>
       <header className="navbar">
-        <a className="title" href="/Portfolio-V2/">
+        <a
+          className="title"
+          href="/Portfolio-V2/"
+          onClick={(event) => {
+            if (!onLogoTap) return;
+            event.preventDefault();
+            onLogoTap();
+          }}
+        >
           /Q.Wrld
         </a>
         <div className="items">
