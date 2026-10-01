@@ -82,3 +82,68 @@
   text-align: center;
 }
 
+
+.markdown-body h3 {
+  margin: 1rem 0 0.25rem;
+}
+
+.markdown-body p > img:only-child {
+  width: 100%;
+}
+
+.markdown-body p > img:not(:only-child) {
+  width: calc(33.333% - 0.5rem);
+  margin: 0.25rem 0.25rem 0.25rem 0;
+  vertical-align: top;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.markdown-body p > em:only-child {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.markdown-body table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.markdown-body th,
+.markdown-body td {
+  text-align: left;
+  padding: 0.5rem 0.75rem 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  vertical-align: top;
+}
+
+.markdown-body pre {
+  overflow-x: auto;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.markdown-body code {
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 0.9em;
+}
+
+.markdown-body blockquote {
+  margin: 0;
+  padding: 0.5rem 1rem;
+  border-left: 3px solid #ff7b00;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.markdown-body hr {
+  width: 100%;
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}

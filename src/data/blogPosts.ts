@@ -1,3 +1,5 @@
+import babelMd from "./posts/babel.md?raw"
+
 export type BlogPost = {
   slug: string
   title: string
@@ -6,9 +8,22 @@ export type BlogPost = {
   hero?: string
   topics: string[]
   content: string[]
+  /** Always listed, even when the remote blog index loads. */
+  featured?: boolean
 }
 
 export const blogPosts: BlogPost[] = [
+  {
+    slug: "babel",
+    title: "Babel: a tower made of words",
+    date: "2026-09-28",
+    excerpt:
+      "A black-and-white theme for Living Diary where a tower rises as you write and comes down as you delete. Nothing is stored; every frame is worked out again from the word count and a seed.",
+    hero: "/Portfolio-V2/babel/hero.webp",
+    topics: ["Tech"],
+    featured: true,
+    content: [babelMd],
+  },
   {
     slug: "learning-to-sculpt-with-data",
     title: "Learning to Sculpt with Data",
