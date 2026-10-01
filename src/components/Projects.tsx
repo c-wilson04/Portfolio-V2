@@ -73,37 +73,26 @@ export default function Projects() {
           build experiences that live in that in-between.
         </p>
       </div>
-      <article className="github-card">
-        <p className="subtitle">New / On GitHub</p>
-        <h3>{githubFeatured.title}</h3>
-        <p>{githubFeatured.description}</p>
-        {githubRepos.length > 0 && (
-          <ul className="github-repos">
-            {githubRepos.map((repo) => (
-              <li key={repo.link}>
-                <a href={repo.link} target="_blank" rel="noreferrer">
-                  {repo.title}
-                </a>{" "}
-                {repo.description}
-              </li>
-            ))}
-          </ul>
-        )}
-        <div className="github-actions">
-          <a
-            href={githubFeatured.link}
-            className="project-btn"
-          >
-            <span>Read the Babel write-up</span>
-          </a>
-          <a
-            href="https://github.com/c-wilson04?tab=repositories"
-            target="_blank"
-            rel="noreferrer"
-            className="hero-link"
-          >
-            All my repos
-          </a>
+      <article className="featured-card">
+        <img
+          className="featured-image"
+          src={`${import.meta.env.BASE_URL}babel/hero.webp`}
+          alt="Babel: a black-and-white tower rising out of the page"
+          loading="lazy"
+        />
+        <div className="featured-body">
+          <p className="subtitle">New / Living Diary</p>
+          <h3>{githubFeatured.title}</h3>
+          <p>{githubFeatured.description}</p>
+          <p className="featured-theme">
+            Pictured: Babel, a theme where a tower rises as you write and comes
+            down as you delete.
+          </p>
+          <div className="github-actions">
+            <a href={githubFeatured.link} className="project-btn">
+              <span>Read the Babel write-up</span>
+            </a>
+          </div>
         </div>
       </article>
       <div className="project-grid">
@@ -137,6 +126,29 @@ export default function Projects() {
           </article>
         ))}
       </div>
+      <article className="github-card">
+        <p className="subtitle">More on GitHub</p>
+        <ul className="github-repos">
+          {githubRepos.map((repo) => (
+            <li key={repo.link}>
+              <a href={repo.link} target="_blank" rel="noreferrer">
+                {repo.title}
+              </a>
+              <span>{repo.description}</span>
+            </li>
+          ))}
+        </ul>
+        <div className="github-actions">
+          <a
+            href="https://github.com/c-wilson04?tab=repositories"
+            target="_blank"
+            rel="noreferrer"
+            className="hero-link"
+          >
+            All my repos
+          </a>
+        </div>
+      </article>
     </section>
   );
 }
