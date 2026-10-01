@@ -1,4 +1,5 @@
 import "./ContactSection.css";
+import Terminal from "./Terminal";
 
 type MediaLink = {
   label: string;
@@ -41,6 +42,7 @@ export default function ContactSection({ mediaLinks }: ContactSectionProps) {
             </div>
           </div>
         </div>
+        <Terminal />
       </div>
     </section>
   );
