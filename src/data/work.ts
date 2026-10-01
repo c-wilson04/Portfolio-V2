@@ -10,6 +10,8 @@ export type WorkItem = {
   did: string[];
   learned: string;
   link?: { href: string; label: string };
+  /** Optional picture for the detail panel; only add one that really shows the project. */
+  image?: { src: string; alt: string };
 };
 
 const BASE = "/Portfolio-V2/";
@@ -126,5 +128,9 @@ export const workItems: WorkItem[] = [
     learned:
       "Keep input logic and world logic apart, and never let a signal the world reads step.",
     link: { href: `${BASE}blog-post.html?slug=babel`, label: "Read the Babel write-up" },
+    image: {
+      src: `${BASE}babel/typing.webp`,
+      alt: "Babel: the tower growing as words are typed",
+    },
   },
 ];

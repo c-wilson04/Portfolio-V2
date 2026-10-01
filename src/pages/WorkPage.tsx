@@ -72,6 +72,14 @@ export default function WorkPage() {
           </div>
           <h2>{current.name}</h2>
           <p className="what">{current.what}</p>
+          {current.image && (
+            <img
+              className="work-image"
+              src={current.image.src}
+              alt={current.image.alt}
+              loading="lazy"
+            />
+          )}
           <div className="work-grid">
             <div>
               <h3>My role</h3>
