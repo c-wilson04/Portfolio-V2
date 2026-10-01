@@ -3,6 +3,7 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Projects from "./components/Projects";
+import Resume from "./components/Resume";
 import BlogSection from "./components/BlogSection";
 import ContactSection from "./components/ContactSection";
 import { navLinks } from "./data/navLinks";
@@ -50,6 +51,7 @@ function App() {
       <main>
         <Hero />
         <Projects />
+        <Resume />
         <BlogSection />
         <ContactSection mediaLinks={mediaLinks} />
       </main>

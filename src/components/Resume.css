@@ -1,0 +1,64 @@
+.resume {
+  padding: 2rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(6, 6, 6, 0.85);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.resume .subtitle {
+  margin: 0;
+  font-size: 0.85rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.timeline li {
+  display: grid;
+  grid-template-columns: minmax(150px, 220px) 1fr;
+  column-gap: 1.5rem;
+  row-gap: 0.25rem;
+  padding-left: 1rem;
+  border-left: 2px solid #ff7b00;
+}
+
+.timeline .years {
+  grid-row: span 2;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.timeline .role {
+  font-weight: 500;
+}
+
+.timeline .line {
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.5;
+}
+
+.resume-btn {
+  min-height: 44px;
+  align-self: flex-start;
+}
+
+@media (max-width: 600px) {
+  .timeline li {
+    grid-template-columns: 1fr;
+  }
+  .timeline .years {
+    grid-row: auto;
+  }
+}
