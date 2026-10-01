@@ -38,7 +38,7 @@ export const workItems: WorkItem[] = [
     name: "BadgeUp",
     when: "[PLACEHOLDER: YYYY – YYYY]",
     status: "Wrapped",
-    role: "[PLACEHOLDER: your role]",
+    role: "CEO.",
     summary:
       "A behavior-driven fitness app that turned consistent habits into a playful game.",
     what: "A behavior-driven fitness app built to make movement feel good. BadgeUp turned consistent habits into a playful game, rewarding small wins, shaping long-term progress, and keeping every level of user motivated with a sustainable feedback loop.",

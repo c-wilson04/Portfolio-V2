@@ -5,7 +5,7 @@ const projectData = [
     id: "badgeup",
     title: "BadgeUp",
     status: "Wrapped",
-    role: "[PLACEHOLDER: your role]",
+    role: "CEO",
     description:
       "A behavior-driven fitness app that turned consistent habits into a playful game, rewarding small wins and keeping every level of user motivated.",
   },
@@ -73,37 +73,6 @@ export default function Projects() {
           build experiences that live in that in-between.
         </p>
       </div>
-      <div className="project-grid">
-        {projectData.map((project) => (
-          <article key={project.title}>
-            <p className="project-status">{project.status}</p>
-            <h3>{project.title}</h3>
-            <p>{project.description}</p>
-            <p className="project-role">My role: {project.role}</p>
-            <a
-              href={`${import.meta.env.BASE_URL}work.html#${project.id}`}
-              className="project-btn"
-            >
-              <span>See the full story</span>
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 16 16"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M1 8H15M15 8L8 1M15 8L8 15"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </a>
-          </article>
-        ))}
-      </div>
       <article className="github-card">
         <p className="subtitle">New / On GitHub</p>
         <h3>{githubFeatured.title}</h3>
@@ -137,6 +106,37 @@ export default function Projects() {
           </a>
         </div>
       </article>
+      <div className="project-grid">
+        {projectData.map((project) => (
+          <article key={project.title}>
+            <p className="project-status">{project.status}</p>
+            <h3>{project.title}</h3>
+            <p>{project.description}</p>
+            <p className="project-role">My role: {project.role}</p>
+            <a
+              href={`${import.meta.env.BASE_URL}work.html#${project.id}`}
+              className="project-btn"
+            >
+              <span>See the full story</span>
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1 8H15M15 8L8 1M15 8L8 15"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </a>
+          </article>
+        ))}
+      </div>
     </section>
   );
 }
