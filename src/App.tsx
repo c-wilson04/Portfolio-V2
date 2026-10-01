@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
@@ -37,16 +37,27 @@ function App() {
 
   useFontAwesomeKit();
 
+  // Easter egg: every 5 taps on the logo shifts the backdrop
+  // (terracotta -> green -> violet -> terracotta).
+  const [backdrop, setBackdrop] = useState(0);
+  const taps = useRef(0);
+  const onLogoTap = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    taps.current += 1;
+    if (taps.current % 5 === 0) setBackdrop((prev) => (prev + 1) % 3);
+  };
+
   const closeBurger = () => setIsBurgerOpen(false);
   const toggleBurger = () => setIsBurgerOpen((prev) => !prev);
 
   return (
-    <div className="app-shell">
+    <div className="app-shell" data-backdrop={backdrop}>
       <Navbar
         links={navLinks}
         isBurgerOpen={isBurgerOpen}
         toggleMenu={toggleBurger}
         onLinkClick={closeBurger}
+        onLogoTap={onLogoTap}
       />
       <main>
         <Hero />

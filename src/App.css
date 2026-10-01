@@ -1,3 +1,11 @@
+.app-shell[data-backdrop="1"] {
+  --backdrop-accent: #4f8a5b;
+}
+
+.app-shell[data-backdrop="2"] {
+  --backdrop-accent: #7a5fb0;
+}
+
 .app-shell {
   min-height: 100vh;
   color: #f5f5f5;
@@ -5,7 +13,7 @@
     135deg,
     #000000 0%,
     #1a1a1a 25%,
-    #bb7456 50%,
+    var(--backdrop-accent, #bb7456) 50%,
     #1a1a1a 75%,
     #ffffff 100%
   );
