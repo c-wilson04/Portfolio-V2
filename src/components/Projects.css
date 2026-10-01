@@ -108,3 +108,53 @@
   transform: translateX(4px);
 }
 
+
+.github-card {
+  margin-top: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.02);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.github-card .subtitle {
+  margin: 0;
+  font-size: 0.85rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.github-card h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.github-card p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+}
+
+.github-repos {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.github-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.github-actions .project-btn,
+.github-actions .hero-link {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}

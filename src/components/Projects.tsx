@@ -21,6 +21,16 @@ const projectData = [
   },
 ];
 
+const githubFeatured = {
+  title: "Living Diary",
+  description:
+    "A Rust/wgpu journal where your writing drives a procedural WGSL world.",
+  link: "https://github.com/c-wilson04/noat",
+};
+
+// [PLACEHOLDER] other repos to list here (waiting on the owner's picks)
+const githubRepos: { title: string; description: string; link: string }[] = [];
+
 export default function Projects() {
   return (
     <section className="projects" id="Projects_">
@@ -58,6 +68,41 @@ export default function Projects() {
           </article>
         ))}
       </div>
+      <article className="github-card">
+        <p className="subtitle">New / On GitHub</p>
+        <h3>{githubFeatured.title}</h3>
+        <p>{githubFeatured.description}</p>
+        {githubRepos.length > 0 && (
+          <ul className="github-repos">
+            {githubRepos.map((repo) => (
+              <li key={repo.link}>
+                <a href={repo.link} target="_blank" rel="noreferrer">
+                  {repo.title}
+                </a>{" "}
+                {repo.description}
+              </li>
+            ))}
+          </ul>
+        )}
+        <div className="github-actions">
+          <a
+            href={githubFeatured.link}
+            target="_blank"
+            rel="noreferrer"
+            className="project-btn"
+          >
+            <span>View on GitHub</span>
+          </a>
+          <a
+            href="https://github.com/c-wilson04?tab=repositories"
+            target="_blank"
+            rel="noreferrer"
+            className="hero-link"
+          >
+            All my repos
+          </a>
+        </div>
+      </article>
     </section>
   );
 }
