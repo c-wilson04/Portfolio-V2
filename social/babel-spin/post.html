@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Babel post</title>
+<style>
+@font-face { font-family: "Space Grotesk"; src: url(fonts/SpaceGrotesk-latin.woff2) format("woff2"); font-weight: 300 700; }
+html, body { margin: 0; padding: 0; background: #ecebeb; }
+#post { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: #ecebeb;
+  font-family: "Space Grotesk", sans-serif; color: #111; }
+#tower { position: absolute; left: 0; top: 521px; width: 1080px; height: 978px; display: block; }
+.abs { position: absolute; white-space: nowrap; }
+#rule { left: 80px; top: 285px; width: 56px; height: 5px; background: #c5422f; }
+#tag { left: 156px; top: 274px; font-size: 27.5px; font-weight: 400; letter-spacing: 0.236em; line-height: 1; color: #1a1a1a; }
+#title { left: 80px; top: 324px; font-size: 299.5px; font-weight: 700; letter-spacing: -0.0445em; line-height: 1; }
+#head { left: 80px; top: 1381px; font-size: 68px; font-weight: 700; letter-spacing: -0.0193em; line-height: 1; }
+#body { left: 80px; top: 1474px; font-size: 36.3px; font-weight: 400; line-height: 50px; color: #4b4b49; }
+#pill { left: 81px; top: 1668px; width: 710px; height: 95px; border-radius: 47.5px; background: #111; }
+#pill > * { position: absolute; }
+#pill .read { left: 43px; top: 0; line-height: 95px; color: #fff; font-weight: 700; font-size: 32.3px; letter-spacing: -0.005em; }
+#pill svg { left: 170px; top: 41px; width: 25px; height: 16px; overflow: visible; }
+#pill .url { left: 214px; top: 0; line-height: 95px; color: #cfcfcf; font-weight: 600; font-size: 28.35px; letter-spacing: -0.005em; }
+</style>
+</head>
+<body>
+<div id="post">
+  <canvas id="tower" width="1080" height="978"></canvas>
+  <div id="rule" class="abs"></div>
+  <div id="tag" class="abs">NEW ESSAY · /Q.WRLD</div>
+  <div id="title" class="abs">Babel</div>
+  <div id="head" class="abs">A tower made of words.</div>
+  <div id="body" class="abs">It rises as you write. Delete a sentence and it<br>comes down. The letters never leave the<br>page.</div>
+  <div id="pill" class="abs"><span class="read">Read it</span><svg viewBox="0 0 25 16"><path d="M2 8 H22.5 M15.5 1.5 L22.5 8 L15.5 14.5" fill="none" stroke="#f28a2b" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="url">c-wilson04.github.io/Portfolio-V2</span></div>
+</div>
+<script type="module">
+import { buildScene } from "./scene.js";
+import { createTower } from "./tower.js";
+import { CONFIG, frameState } from "./anim.js";
+
+const ov = location.hash.length > 1 ? JSON.parse(decodeURIComponent(location.hash.slice(1))) : {};
+if (ov.config) Object.assign(CONFIG, ov.config);
+if (ov.scene) Object.assign(CONFIG.scene, ov.scene);
+const scene = buildScene(CONFIG.scene);
+const canvas = document.getElementById("tower");
+const tower = createTower(canvas, scene, { ss: CONFIG.ss });
+
+window.renderFrame = (k, n, overrides = {}) => {
+  const st = frameState(k, n, scene, overrides);
+  const t0 = performance.now();
+  tower.render(st);
+  return { ms: performance.now() - t0, az: st.azDeg };
+};
+window.sceneInfo = { f0: scene.f0, f1: scene.f1, fTop: scene.fTop };
+window.ready = document.fonts.ready.then(() => true);
+</script>
+</body>
+</html>
