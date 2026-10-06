@@ -9,6 +9,7 @@ export type BlogMeta = {
   hero?: string
   topics: string[]
   content?: string
+  href?: string
 }
 
 export type RemoteBlogPost = {
@@ -24,17 +25,19 @@ const fallbackMeta: BlogMeta[] = blogPosts.map((post) => ({
   excerpt: post.excerpt,
   hero: post.hero,
   topics: post.topics,
+  href: post.href,
 }))
 
 const featuredMeta: BlogMeta[] = blogPosts
   .filter((post) => post.featured)
-  .map(({ slug, title, date, excerpt, hero, topics }) => ({
+  .map(({ slug, title, date, excerpt, hero, topics, href }) => ({
     slug,
     title,
     date,
     excerpt,
     hero,
     topics,
+    href,
   }))
 
 export async function fetchBlogIndex(): Promise<BlogMeta[]> {

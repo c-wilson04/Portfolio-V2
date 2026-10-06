@@ -10,9 +10,23 @@ export type BlogPost = {
   content: string[]
   /** Always listed, even when the remote blog index loads. */
   featured?: boolean
+  /** A standalone page to link to instead of blog-post.html. */
+  href?: string
 }
 
 export const blogPosts: BlogPost[] = [
+  {
+    slug: "acropolis",
+    title: "An Acropolis of Words",
+    date: "October 2026",
+    excerpt:
+      "I talk, and a temple goes up. A step, then a column, then a roof.",
+    hero: "/Portfolio-V2/acropolis/img/acropolis-finished.webp",
+    topics: ["Tech"],
+    featured: true,
+    href: "/Portfolio-V2/acropolis/",
+    content: [],
+  },
   {
     slug: "babel",
     title: "Babel: a tower made of words",

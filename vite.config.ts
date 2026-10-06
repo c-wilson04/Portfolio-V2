@@ -11,6 +11,7 @@ export default defineConfig({
         blog: './blog.html',
         blogPost: './blog-post.html',
         work: './work.html',
+        acropolis: './acropolis/index.html',
       },
     },
   },
