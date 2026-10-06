@@ -1,1 +1,0 @@
-import{r as t}from"./useFontAwesomeKit-C8vwCgtM.js";import{f as a,a as r}from"./blogAPI-DpyEBufw.js";function n(){const[e,s]=t.useState(a);return t.useEffect(()=>{r().then(o=>s(o)).catch(()=>{})},[]),e}export{n as u};

@@ -1,0 +1,1 @@
+import{r as t,u as o,j as e,N as a,n as i,c}from"./useFontAwesomeKit-C8vwCgtM.js";function u(){const[n,s]=t.useState(!1);return o(),e.jsx(a,{links:i,isBurgerOpen:n,toggleMenu:()=>s(r=>!r),onLinkClick:()=>s(!1)})}c.createRoot(document.getElementById("nav")).render(e.jsx(t.StrictMode,{children:e.jsx(u,{})}));
