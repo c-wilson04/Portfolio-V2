@@ -1,0 +1,36 @@
+Copyright (c) 2025-2026 Charles Wilson
+
+This repository holds two kinds of material under different terms.
+
+
+1. CODE: ALL RIGHTS RESERVED
+
+All source code, markup, styles and configuration in this repository
+(including everything under src/, the HTML pages, and the build files)
+is copyright Charles Wilson. All rights reserved.
+
+The code is published for transparency and inspection only. You may view
+and read it, and fork it on GitHub as GitHub's Terms of Service allow, but
+no licence is granted to copy, modify, distribute, sublicense, or use it in
+other projects, in whole or in part, without written permission from the
+copyright holder.
+
+
+2. ARTICLES AND THEIR IMAGES: CC BY 4.0
+
+The blog articles and the images published with them are licensed under
+the Creative Commons Attribution 4.0 International License (CC BY 4.0):
+https://creativecommons.org/licenses/by/4.0/
+
+This covers:
+  - the article text in src/data/posts/ (e.g. "Babel: a tower made of words")
+  - the article text of "An Acropolis of Words" in acropolis/index.html
+    (the page's markup and styles remain under section 1)
+  - the images in public/babel/ and public/acropolis/
+
+You may share and adapt this material for any purpose, including
+commercially, as long as you give appropriate credit ("Charles Wilson"),
+link to the licence, and indicate if changes were made.
+
+Anything not listed in section 2, including images/ and other personal
+photos, falls under section 1.
