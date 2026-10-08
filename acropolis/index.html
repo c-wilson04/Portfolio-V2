@@ -129,7 +129,7 @@
       .acropolis .dek { font-size: 22px; line-height: 1.45; color: var(--ink-2); margin: 0; text-wrap: pretty; }
       .acropolis .byline { font-family: var(--mono); font-size: 13px; color: var(--ink-3); }
       .acropolis .turn { margin: 0; display: grid; gap: 10px; }
-      .acropolis .turn img {
+      .acropolis .turn video {
         display: block;
         width: 100%;
         max-width: 100%;
@@ -214,9 +214,6 @@
 
       .acropolis .colophon { color: var(--ink-3); font-size: 11px; line-height: 1.8; padding-top: 48px; }
 
-      @media (prefers-reduced-motion: reduce) {
-        .acropolis .turn img.anim { content: url("img/acropolis-finished.webp"); }
-      }
     </style>
     <script type="module" crossorigin src="/Portfolio-V2/assets/acropolis-C6Kkj-fP.js"></script>
     <link rel="modulepreload" crossorigin href="/Portfolio-V2/assets/useFontAwesomeKit-C8vwCgtM.js">
@@ -234,7 +231,22 @@
       <div class="byline">Charles Wilson &middot; October 2026</div>
     </div>
     <figure class="turn">
-      <img class="anim" src="img/acropolis-turn.webp" width="1080" height="1080" alt="A pen-and-ink drawing of a Greek temple building itself while it slowly turns: the stepped base appears, then columns rise one by one around the edge, an inner room, a blue frieze, and finally the roof.">
+      <video class="anim" poster="img/acropolis-turn-poster.webp" width="720" height="720" autoplay muted loop playsinline preload="auto" role="img" aria-label="A pen-and-ink drawing of a Greek temple building itself while it slowly turns: the stepped base appears, then columns rise one by one around the edge, an inner room, a blue frieze, and finally the roof.">
+        <source src="img/acropolis-turn.webm" type="video/webm">
+        <source src="img/acropolis-turn.mp4" type="video/mp4">
+      </video>
+      <script>
+        // Reduced motion: hold on the finished temple instead of looping.
+        if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          const v = document.currentScript.previousElementSibling;
+          v.removeAttribute("autoplay");
+          v.pause();
+          v.poster = "img/acropolis-finished.webp";
+          v.preload = "none";
+          v.querySelectorAll("source").forEach((source) => source.remove());
+          v.load();
+        }
+      </script>
       <figcaption><span class="fig">Fig. 1</span>One temple, start to finish, as it builds in the Acropolis world. Every line is drawn live from the words, never from a stored picture.</figcaption>
     </figure>
   </header>
