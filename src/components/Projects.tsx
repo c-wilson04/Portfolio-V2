@@ -76,12 +76,37 @@ export default function Projects() {
       <article className="featured-card">
         <img
           className="featured-image"
+          src={`${import.meta.env.BASE_URL}acropolis/img/acropolis-finished.webp`}
+          alt="Acropolis: a pen-and-ink Greek temple with a blue frieze"
+          loading="lazy"
+        />
+        <div className="featured-body">
+          <p className="subtitle">New / Living Diary</p>
+          <h3>An Acropolis of Words</h3>
+          <p>I talk, and a temple goes up. A step, then a column, then a roof.</p>
+          <p className="featured-theme">
+            Pictured: Acropolis, a world where each temple is built from the
+            words you say.
+          </p>
+          <div className="github-actions">
+            <a
+              href={`${import.meta.env.BASE_URL}acropolis/`}
+              className="project-btn"
+            >
+              <span>Read the Acropolis write-up</span>
+            </a>
+          </div>
+        </div>
+      </article>
+      <article className="featured-card">
+        <img
+          className="featured-image"
           src={`${import.meta.env.BASE_URL}babel/hero.webp`}
           alt="Babel: a black-and-white tower rising out of the page"
           loading="lazy"
         />
         <div className="featured-body">
-          <p className="subtitle">New / Living Diary</p>
+          <p className="subtitle">Living Diary</p>
           <h3>{githubFeatured.title}</h3>
           <p>{githubFeatured.description}</p>
           <p className="featured-theme">
