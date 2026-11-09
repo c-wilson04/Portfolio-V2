@@ -7,6 +7,17 @@
     <meta name="description" content="I talk, and a temple goes up. A step, then a column, then a roof." />
     <meta name="author" content="Charles Wilson" />
     <link rel="canonical" href="https://c-wilson04.github.io/Portfolio-V2/acropolis/" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#f3f2ee" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#12151b" media="(prefers-color-scheme: dark)" />
+    <script>
+      // Apply a saved light/dark choice before the first paint.
+      try {
+        var t = localStorage.getItem("theme");
+        if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    </script>
     <meta property="og:type" content="article" />
     <meta property="og:site_name" content="Q.Wrld" />
     <meta property="og:title" content="An Acropolis of Words" />
@@ -70,17 +81,15 @@
         --frieze: #7fa6dc;
       }
 
-      /* The site navbar, as on the other pages. */
+      /* The site navbar, as on the other pages; it brings its own styles. */
       .acropolis-nav {
-        color: #f8f8f8;
-        font-family: "Space Grotesk", "Inter", system-ui, sans-serif;
         font-size: 16px;
+        line-height: 1.5;
         -webkit-font-smoothing: antialiased;
         position: sticky;
         top: 0;
-        z-index: 20;
+        z-index: 30;
       }
-      .acropolis-nav *, .acropolis-nav *::before, .acropolis-nav *::after { box-sizing: border-box; }
 
       .acropolis {
         box-sizing: border-box;
@@ -219,7 +228,7 @@
   <body class="acropolis-page">
     <div id="nav" class="acropolis-nav"></div>
     <div class="acropolis">
-<main class="page">
+<main class="page" id="main">
   <header class="masthead wide">
     <div class="text">
       <div class="label">Living Diary &middot; journal</div>

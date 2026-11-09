@@ -1,5 +1,6 @@
 import { BLOG_INDEX_URL } from "../config/blogSource"
 import { blogPosts } from "../data/blogPosts"
+import { dateKey } from "../lib/dates"
 
 export type BlogMeta = {
   slug: string
@@ -18,18 +19,10 @@ export type RemoteBlogPost = {
   content: string
 }
 
-const fallbackMeta: BlogMeta[] = blogPosts.map((post) => ({
-  slug: post.slug,
-  title: post.title,
-  date: post.date,
-  excerpt: post.excerpt,
-  hero: post.hero,
-  topics: post.topics,
-  href: post.href,
-}))
+const byDateDesc = (a: BlogMeta, b: BlogMeta) => dateKey(b.date) - dateKey(a.date)
 
-const featuredMeta: BlogMeta[] = blogPosts
-  .filter((post) => post.featured)
+/** Posts bundled in this repo; shown immediately, before the remote index loads. */
+export const localMeta: BlogMeta[] = blogPosts
   .map(({ slug, title, date, excerpt, hero, topics, href }) => ({
     slug,
     title,
@@ -39,41 +32,34 @@ const featuredMeta: BlogMeta[] = blogPosts
     topics,
     href,
   }))
+  .sort(byDateDesc)
 
 export async function fetchBlogIndex(): Promise<BlogMeta[]> {
   const response = await fetch(BLOG_INDEX_URL)
   if (!response.ok) {
     throw new Error("Unable to download blog index")
   }
-  const data = await response.json()
-  if (!Array.isArray(data)) return fallbackMeta
-  // Posts that live in this repo are always listed alongside the remote ones.
-  const featured = featuredMeta.filter(
-    (post) => !data.some((remote: BlogMeta) => remote.slug === post.slug)
-  )
-  return [...featured, ...data]
+  const data: unknown = await response.json()
+  if (!Array.isArray(data)) return localMeta
+  const remote = data as BlogMeta[]
+  // Local posts are always listed; a remote post with the same slug wins.
+  const local = localMeta.filter((post) => !remote.some((r) => r.slug === post.slug))
+  return [...local, ...remote].sort(byDateDesc)
 }
 
 export async function fetchBlogPost(slug: string): Promise<RemoteBlogPost> {
   // Posts bundled in this repo render from local data, not the remote index.
-  if (featuredMeta.some((post) => post.slug === slug)) {
+  if (localMeta.some((post) => post.slug === slug)) {
     throw new Error("Post is bundled locally")
   }
-  // Fetch the index to get metadata
   const index = await fetchBlogIndex()
   const post = index.find((p) => p.slug === slug)
-
   if (!post) {
     throw new Error("Post not found in index")
   }
-  
-  // Return the metadata from index.json with excerpt as body
   return {
     meta: post,
     body: post.excerpt,
     content: post.content ?? "",
   }
 }
-
-export { fallbackMeta }
-

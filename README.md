@@ -1,73 +1,47 @@
-# React + TypeScript + Vite
+# Q.Wrld
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The personal site of Charles Wilson: what I'm working on, things I've built,
+and writing. Live at <https://c-wilson04.github.io/Portfolio-V2/>.
 
-Currently, two official plugins are available:
+Built with React, TypeScript and Vite. The hero is a three.js model,
+loaded after the page so the text shows first.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Updating the content
 
-## React Compiler
+Most changes are a single file:
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+| What | Where |
+| --- | --- |
+| Intro, Now section, About, background, toolkit, links | `src/data/profile.ts` |
+| Projects (home page list and the Projects page) | `src/data/work.ts` |
+| Small GitHub repos | `src/data/repos.ts` |
+| Posts bundled in this repo | `src/data/blogPosts.ts`, `src/data/posts/` |
 
-## Expanding the ESLint configuration
+Other posts come from the blog repo's index (`src/config/blogSource.ts`).
+Leave a field out rather than filling it with a placeholder; empty fields
+are not shown.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Pages
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- `index.html`: home (`src/App.tsx`)
+- `work.html`: Projects (`src/pages/WorkPage.tsx`)
+- `blog.html`: Writing (`src/pages/BlogPage.tsx`)
+- `blog-post.html?slug=…`: a post (`src/pages/BlogPostPage.tsx`)
+- `acropolis/`: the "An Acropolis of Words" article, static HTML
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Light and dark themes share the tokens in `src/styles/tokens.css`.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Commands
+
+```sh
+npm install
+npm run dev      # local dev server
+npm run build    # type-check and build to dist/
+npm run lint
+npm run deploy   # build and publish dist/ to the gh-pages branch
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Licence
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Code: all rights reserved. Articles and their images: CC BY 4.0. See
+[LICENSE](LICENSE).

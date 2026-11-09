@@ -1,59 +1,80 @@
-.contact {
-  min-height: 60vh;
-  background: #000;
-  border-radius: 1rem;
-  padding: 2rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+.contact .container {
+  display: grid;
+  justify-items: start;
+}
+
+.contact__title {
+  margin-top: 10px;
+  font-size: clamp(40px, 6vw, 72px);
+  letter-spacing: -0.03em;
+}
+
+.contact__lede {
+  margin-top: 18px;
+  max-width: 34em;
+  font-size: clamp(18px, 1.7vw, 20px);
+  color: var(--text-2);
+}
+
+.contact__email {
   display: flex;
   align-items: center;
-  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 32px;
 }
 
-.contact-container {
-  width: min(900px, 90vw);
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+.contact__email a {
+  font-size: clamp(20px, 3vw, 30px);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.2em;
+  overflow-wrap: anywhere;
 }
 
-.contact-title {
-  font-size: 2.5rem;
-  font-weight: 300;
-  border-bottom: 3px solid #ffffff;
-  padding-bottom: 0.5rem;
+.contact__email a:hover {
+  color: var(--accent-text);
 }
 
-.links {
+.socials {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 1.5rem;
+  gap: 8px 24px;
 }
 
-.links a {
-  color: inherit;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.links a:hover {
-  color: #ff7b00;
-}
-
-.Media {
-  display: flex;
+.socials a {
+  display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 8px;
+  min-height: 44px;
+  color: var(--text-2);
+  text-decoration: none;
+  transition: color 0.15s ease;
 }
 
-.link-items {
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
+.socials a:hover {
+  color: var(--text);
 }
 
-.subtitle {
-  font-size: 1rem;
-  margin-right: 0.5rem;
-  font-weight: 400;
+.socials svg {
+  width: 18px;
+  height: 18px;
 }
 
+.contact__socials {
+  margin-top: 16px;
+}
+
+.contact__terminal {
+  width: 100%;
+  max-width: 640px;
+  margin-top: 48px;
+  display: grid;
+  gap: 10px;
+}

@@ -1,73 +1,60 @@
 import { useState } from "react";
+import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
-import { navLinks } from "../data/navLinks";
+import PageHeader from "../components/PageHeader";
 import { useBlogIndex } from "../hooks/useBlogIndex";
-import { useFontAwesomeKit } from "../hooks/useFontAwesomeKit";
+import { formatPostDate } from "../lib/dates";
+import { postHref } from "../lib/posts";
+import type { BlogMeta } from "../services/blogAPI";
 import "./BlogPage.css";
 
-export default function BlogPage() {
-  const [isBurgerOpen, setIsBurgerOpen] = useState(false);
-  useFontAwesomeKit();
-  const posts = useBlogIndex();
+const BASE = import.meta.env.BASE_URL;
 
-  const closeBurger = () => setIsBurgerOpen(false);
-  const toggleBurger = () => setIsBurgerOpen((prev) => !prev);
+function PostCard({ post }: { post: BlogMeta }) {
+  // Some remote posts point at images that were never published; hide those.
+  const [showImage, setShowImage] = useState(Boolean(post.hero));
+
+  return (
+    <li>
+      <a className="post-card" href={postHref(post)}>
+        <span className="post-card__media">
+          {showImage && post.hero ? (
+            <img src={post.hero} alt="" loading="lazy" decoding="async" onError={() => setShowImage(false)} />
+          ) : (
+            <span className="post-card__placeholder" aria-hidden="true">
+              /Q
+            </span>
+          )}
+        </span>
+        <span className="post-card__body">
+          <time className="label">{formatPostDate(post.date)}</time>
+          <span className="post-card__title">{post.title}</span>
+          <span className="post-card__excerpt">{post.excerpt}</span>
+        </span>
+      </a>
+    </li>
+  );
+}
+
+export default function BlogPage() {
+  const posts = useBlogIndex();
 
   return (
     <>
-      <Navbar
-        links={navLinks}
-        isBurgerOpen={isBurgerOpen}
-        toggleMenu={toggleBurger}
-        onLinkClick={closeBurger}
-      />
-      <div className="blog-page">
-        <header>
-          <p className="subtitle">Blog</p>
-          <h1>Dispatches from Q.Wrld</h1>
-          <p>
-            Thought pieces, experiments, and write-ups from the cross-section of
-            art, data, and real-time experiences.
-          </p>
-        </header>
-        <section className="blog-list">
-          {posts.map((post) => (
-            <article key={post.title}>
-              <div className="blog-card-header">
-                <p className="meta">{post.date}</p>
-                <div className="topic-row">
-                  {post.topics.map((topic) => (
-                    <span key={topic}>{topic}</span>
-                  ))}
-                </div>
-              </div>
-              <h2>{post.title}</h2>
-              <p>{post.excerpt}</p>
-              <a
-                className="blog-btn"
-                href={post.href ?? `/Portfolio-V2/blog-post.html?slug=${post.slug}`}
-              >
-                <span>Read Post</span>
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 16 16"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M1 8H15M15 8L8 1M15 8L8 15"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </a>
-            </article>
-          ))}
-        </section>
-      </div>
+      <Navbar />
+      <main id="main">
+        <PageHeader label="Writing" title="Notes and write-ups" back={{ href: `${BASE}#writing`, label: "Home" }}>
+          <p>Write-ups of what I'm building, and notes on what I'm learning along the way.</p>
+        </PageHeader>
+        <div className="container">
+          <ul className="post-grid">
+            {posts.map((post) => (
+              <PostCard key={post.slug} post={post} />
+            ))}
+          </ul>
+        </div>
+      </main>
+      <Footer />
     </>
   );
 }

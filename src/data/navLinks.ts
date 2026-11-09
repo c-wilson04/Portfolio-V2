@@ -1,9 +1,11 @@
-export const navLinks = [
-  { label: "About Me", href: "/Portfolio-V2/#AboutMe_" },
-  { label: "Projects", href: "/Portfolio-V2/#Projects_" },
-  { label: "Work", href: "/Portfolio-V2/work.html" },
-  { label: "Resume", href: "/Portfolio-V2/#Resume_" },
-  { label: "Blog", href: "/Portfolio-V2/blog.html" },
-  { label: "Contact", href: "/Portfolio-V2/#Contact_" },
-];
+export const BASE = import.meta.env.BASE_URL; // "/Portfolio-V2/"
 
+// Every item is a section of the home page; the full Projects and Writing
+// pages are linked from those sections.
+export const navLinks = [
+  { label: "Now", href: `${BASE}#now` },
+  { label: "Projects", href: `${BASE}#projects` },
+  { label: "Writing", href: `${BASE}#writing` },
+  { label: "About", href: `${BASE}#about` },
+  { label: "Contact", href: `${BASE}#contact` },
+];

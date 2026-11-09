@@ -1,9 +1,12 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import AcropolisNav from "./components/AcropolisNav";
+// Only the navbar is React here; the article keeps its own styles.
+import "./styles/fonts";
+import "./styles/tokens.css";
+import Navbar from "./components/Navbar";
 
 createRoot(document.getElementById("nav")!).render(
   <StrictMode>
-    <AcropolisNav />
+    <Navbar />
   </StrictMode>
 );

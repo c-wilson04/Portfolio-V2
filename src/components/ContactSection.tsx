@@ -1,48 +1,53 @@
-import "./ContactSection.css";
+import { useState } from "react";
+import { profile } from "../data/profile";
+import { CheckIcon, CopyIcon } from "./Icons";
+import SocialLinks from "./SocialLinks";
 import Terminal from "./Terminal";
+import "./ContactSection.css";
 
-type MediaLink = {
-  label: string;
-  href: string;
-  icon: string;
-};
+export default function ContactSection() {
+  const [copied, setCopied] = useState(false);
 
-type ContactSectionProps = {
-  mediaLinks: MediaLink[];
-};
+  const copy = async () => {
+    try {
+      await navigator.clipboard.writeText(profile.email);
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 2000);
+    } catch {
+      // Clipboard blocked: the address is still on screen to select.
+    }
+  };
 
-export default function ContactSection({ mediaLinks }: ContactSectionProps) {
   return (
-    <section className="contact" id="Contact_">
-      <div className="contact-container">
-        <div className="contact-title">
-          <p>Contact</p>
+    <section className="section contact" id="contact" aria-labelledby="contact-title">
+      <div className="container">
+        <p className="label">
+          <b>05</b> Contact
+        </p>
+        <h2 id="contact-title" className="contact__title">
+          Say hello.
+        </h2>
+        <p className="contact__lede">
+          I'm here to meet people. If you're building something, writing about where tech is
+          going, or making visuals, I'd love to hear about it.
+        </p>
+
+        <div className="contact__email">
+          <a href={`mailto:${profile.email}`}>{profile.email}</a>
+          <button type="button" className="icon-btn" onClick={copy} aria-label="Copy email address">
+            {copied ? <CheckIcon /> : <CopyIcon />}
+          </button>
+          <span className="visually-hidden" aria-live="polite">
+            {copied ? "Email address copied" : ""}
+          </span>
         </div>
-        <div className="links">
-          <div className="Media">
-            <p className="subtitle">Mail:</p>
-            <i className="fa-solid fa-envelope" />
-            <a href="mailto:Charles.ikwilson@gmail.com">
-              &nbsp;Charles.ikwilson@gmail.com
-            </a>
-          </div>
-          <div className="Media">
-            <p className="subtitle">Media:</p>
-            <div className="link-items">
-              {mediaLinks.map((media) => (
-                <a
-                  key={media.label}
-                  href={media.href}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <i className={media.icon} /> {media.label}
-                </a>
-              ))}
-            </div>
-          </div>
+
+        <SocialLinks className="contact__socials" />
+
+        <div className="contact__terminal">
+          <p className="label">Or, if you're curious</p>
+          <Terminal />
         </div>
-        <Terminal />
       </div>
     </section>
   );

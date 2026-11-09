@@ -1,179 +1,102 @@
+import { featuredWork, workItems } from "../data/work";
+import { githubProfile, githubRepos } from "../data/repos";
+import { ArrowRightIcon, ArrowUpRightIcon } from "./Icons";
 import "./Projects.css";
 
-const projectData = [
-  {
-    id: "badgeup",
-    title: "BadgeUp",
-    status: "Wrapped",
-    role: "CEO",
-    description:
-      "A behavior-driven fitness app that turned consistent habits into a playful game, rewarding small wins and keeping every level of user motivated.",
-  },
-  {
-    id: "riva",
-    title: "Rivers Intelligence - Riva Platform",
-    status: "Wrapped",
-    role: "CTO",
-    description:
-      "An automation agent that acted like a dedicated assistant for a business: answering calls, following up in real time, and reactivating leads with a human touch.",
-  },
-  {
-    id: "qwrld",
-    title: "Qwrld Visuals",
-    status: "Archived",
-    role: "Artist",
-    description:
-      "My personal art practice: immersive visual storytelling about identity, feeling, and narrative, atmospheric and deeply personal.",
-  },
-];
-
-const githubFeatured = {
-  title: "Living Diary",
-  description:
-    "A Rust/wgpu journal where your writing drives a procedural WGSL world.",
-  // The noat repo is private, so link the public write-up instead.
-  link: "/Portfolio-V2/blog-post.html?slug=babel",
-};
-
-// Public repos only. Private ones (noat, BadgeUp, Global-Economy-Sim) would 404 for visitors.
-const githubRepos = [
-  {
-    title: "callgraph",
-    description: "Dynamic runtime call graph tracer for Python.",
-    link: "https://github.com/c-wilson04/callgraph",
-  },
-  {
-    title: "Music-Analysis-Project",
-    description:
-      "Uses your own music to work out what kind of listener you actually are.",
-    link: "https://github.com/c-wilson04/Music-Analysis-Project",
-  },
-  {
-    title: "Cloud-Security-Breach-Simulator",
-    description:
-      "Simulates and analyzes cloud security breaches to help businesses strengthen their defenses.",
-    link: "https://github.com/c-wilson04/Cloud-Security-Breach-Simulator",
-  },
-  {
-    title: "AI-Recipe-Web",
-    description:
-      "A Django recipe book with MongoDB storage and AI-powered recommendations.",
-    link: "https://github.com/c-wilson04/AI-Recipe-Web",
-  },
-];
+const BASE = import.meta.env.BASE_URL;
 
 export default function Projects() {
+  const others = workItems.filter((item) => item.id !== featuredWork.id);
+
   return (
-    <section className="projects" id="Projects_">
-      <div className="section-heading">
-        <p className="subtitle">Selected Projects</p>
-        <h2>Experimental work where data, art, and technology collide</h2>
-        <p>
-          I explore the space where emotion, design, and technology meet—and
-          build experiences that live in that in-between.
-        </p>
-      </div>
-      <article className="featured-card">
-        <img
-          className="featured-image"
-          src={`${import.meta.env.BASE_URL}acropolis/img/acropolis-finished.webp`}
-          alt="Acropolis: a pen-and-ink Greek temple with a blue frieze"
-          loading="lazy"
-        />
-        <div className="featured-body">
-          <p className="subtitle">New / Living Diary</p>
-          <h3>An Acropolis of Words</h3>
-          <p>I talk, and a temple goes up. A step, then a column, then a roof.</p>
-          <p className="featured-theme">
-            Pictured: Acropolis, a world where each temple is built from the
-            words you say.
-          </p>
-          <div className="github-actions">
-            <a
-              href={`${import.meta.env.BASE_URL}acropolis/`}
-              className="project-btn"
-            >
-              <span>Read the Acropolis write-up</span>
-            </a>
+    <section className="section" id="projects" aria-labelledby="projects-title">
+      <div className="container">
+        <div className="section-head">
+          <div>
+            <p className="label">
+              <b>02</b> Projects
+            </p>
+            <h2 id="projects-title">Things I've built</h2>
           </div>
+          <a className="arrow-link" href={`${BASE}work.html`}>
+            Full project notes
+            <ArrowRightIcon />
+          </a>
         </div>
-      </article>
-      <article className="featured-card">
-        <img
-          className="featured-image"
-          src={`${import.meta.env.BASE_URL}babel/hero.webp`}
-          alt="Babel: a black-and-white tower rising out of the page"
-          loading="lazy"
-        />
-        <div className="featured-body">
-          <p className="subtitle">Living Diary</p>
-          <h3>{githubFeatured.title}</h3>
-          <p>{githubFeatured.description}</p>
-          <p className="featured-theme">
-            Pictured: Babel, a theme where a tower rises as you write and comes
-            down as you delete.
-          </p>
-          <div className="github-actions">
-            <a href={githubFeatured.link} className="project-btn">
-              <span>Read the Babel write-up</span>
+
+        <article className="feature">
+          {featuredWork.image && (
+            <a className="feature__media" href={`${BASE}work.html#${featuredWork.id}`} tabIndex={-1} aria-hidden="true">
+              <img
+                src={featuredWork.image.src}
+                alt=""
+                width="1200"
+                height="1200"
+                loading="lazy"
+                decoding="async"
+              />
             </a>
+          )}
+          <div className="feature__body">
+            <p className="label">
+              {featuredWork.year} · {featuredWork.roleShort} · {featuredWork.status}
+            </p>
+            <h3>{featuredWork.name}</h3>
+            <p>{featuredWork.what}</p>
+            {featuredWork.stack && (
+              <ul className="tags" aria-label="Built with">
+                {featuredWork.stack.map((tag) => (
+                  <li key={tag}>{tag}</li>
+                ))}
+              </ul>
+            )}
+            <div className="feature__links">
+              {featuredWork.links?.map((link) => (
+                <a key={link.href} className="arrow-link" href={link.href}>
+                  {link.label}
+                  <ArrowRightIcon />
+                </a>
+              ))}
+            </div>
           </div>
-        </div>
-      </article>
-      <div className="project-grid">
-        {projectData.map((project) => (
-          <article key={project.title}>
-            <p className="project-status">{project.status}</p>
-            <h3>{project.title}</h3>
-            <p>{project.description}</p>
-            <p className="project-role">My role: {project.role}</p>
-            <a
-              href={`${import.meta.env.BASE_URL}work.html#${project.id}`}
-              className="project-btn"
-            >
-              <span>See the full story</span>
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 16 16"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M1 8H15M15 8L8 1M15 8L8 15"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </a>
-          </article>
-        ))}
-      </div>
-      <article className="github-card">
-        <p className="subtitle">More on GitHub</p>
-        <ul className="github-repos">
-          {githubRepos.map((repo) => (
-            <li key={repo.link}>
-              <a href={repo.link} target="_blank" rel="noreferrer">
-                {repo.title}
+        </article>
+
+        <ul className="rows" aria-label="More projects">
+          {others.map((item) => (
+            <li key={item.id}>
+              <a className="row" href={`${BASE}work.html#${item.id}`}>
+                <span className="row__year">{item.year}</span>
+                <span className="row__main">
+                  <span className="row__title">{item.name}</span>
+                  <span className="row__summary">{item.summary}</span>
+                </span>
+                <span className="row__role">{item.roleShort}</span>
+                <ArrowRightIcon className="row__arrow" />
               </a>
-              <span>{repo.description}</span>
             </li>
           ))}
         </ul>
-        <div className="github-actions">
-          <a
-            href="https://github.com/c-wilson04?tab=repositories"
-            target="_blank"
-            rel="noreferrer"
-            className="hero-link"
-          >
-            All my repos
-          </a>
+
+        <div className="repos">
+          <div className="repos__head">
+            <p className="label">Small things on GitHub</p>
+            <a className="arrow-link" href={githubProfile} target="_blank" rel="noreferrer">
+              All repositories
+              <ArrowUpRightIcon />
+            </a>
+          </div>
+          <ul className="repos__list">
+            {githubRepos.map((repo) => (
+              <li key={repo.link}>
+                <a href={repo.link} target="_blank" rel="noreferrer">
+                  {repo.title}
+                </a>
+                <span>{repo.description}</span>
+              </li>
+            ))}
+          </ul>
         </div>
-      </article>
+      </div>
     </section>
   );
 }
