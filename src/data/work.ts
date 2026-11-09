@@ -67,8 +67,8 @@ export const workItems: WorkItem[] = [
   {
     id: "capstone",
     name: "Multi-Sensor Object Detection & Tracking",
-    year: "2025",
-    period: "From Sept 2025",
+    year: "2025 – 26",
+    period: "Sept 2025 – May 2026",
     roleShort: "Capstone team",
     role: "Team member, senior capstone, under faculty supervision.",
     summary: "Detecting and tracking objects by fusing Doppler radar with RGB-D camera data.",

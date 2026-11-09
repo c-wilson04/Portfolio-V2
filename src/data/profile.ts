@@ -40,7 +40,7 @@ export const profile = {
   ],
 
   about: [
-    "I studied computer science at Virginia Commonwealth University, with a focus on data science and machine learning. Along the way I led engineering at an AI startup, did AI research, and built test automation tools in C#. These days my work is optimization and logistics.",
+    "I graduated from Virginia Commonwealth University in May 2026 with a B.S. in computer science, focused on data science and machine learning. Along the way I led engineering at an AI startup, did AI research, and built test automation tools in C#. These days my work is optimization and logistics.",
     "Outside of work I make things: shader worlds for Living Diary, visuals in TouchDesigner, and 3D pieces in Blender. I'm also always reading about what's next, from GPU architecture to quantum computing to nuclear power.",
     "Q.Wrld is the name I make things under.",
   ],
