@@ -6,11 +6,6 @@ export const githubRepos = [
     link: "https://github.com/c-wilson04/callgraph",
   },
   {
-    title: "Music-Analysis-Project",
-    description: "Uses your own music to work out what kind of listener you actually are.",
-    link: "https://github.com/c-wilson04/Music-Analysis-Project",
-  },
-  {
     title: "Cloud-Security-Breach-Simulator",
     description: "Simulates and analyzes cloud security breaches to help businesses strengthen their defenses.",
     link: "https://github.com/c-wilson04/Cloud-Security-Breach-Simulator",

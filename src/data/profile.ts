@@ -5,6 +5,7 @@ export const profile = {
   name: "Charles Wilson",
   alias: "Q.Wrld",
   email: "charles.ikwilson@gmail.com",
+  location: "Richmond, VA",
   tagline: "Optimization · Graphics · Visuals",
 
   intro:
@@ -47,16 +48,23 @@ export const profile = {
   background: [
     { when: "Now", what: "Optimization & logistics", where: "Full-time" },
     { when: "2026", what: "B.S. Computer Science", where: "Virginia Commonwealth University" },
-    { when: "2025", what: "CTO", where: "Rivers Intelligence" },
+    { when: "2025–26", what: "CTO", where: "Rivers Intelligence" },
     { when: "2025", what: "AI Research Intern", where: "4K2" },
     { when: "2024", what: "Software Engineering Intern", where: "Serco" },
   ],
 
+  // Clubs and organizations, shown under "Community" in About.
+  community: [
+    { when: "2024", what: "Director of Alumni Relations", where: "Developing Men of Color, VCU" },
+    { when: "2024", what: "Club soccer", where: "VCU" },
+    { when: "2022", what: "Member", where: "National Society of Black Engineers, VCU" },
+  ],
+
   toolkit: [
-    { group: "Languages", items: ["Python", "Rust", "TypeScript", "C#", "SQL"] },
-    { group: "Data & ML", items: ["pandas", "NumPy", "PyTorch", "scikit-learn", "Excel"] },
+    { group: "Languages", items: ["Python", "TypeScript", "Rust", "C#", "SQL", "C", "Bash"] },
+    { group: "Data & ML", items: ["pandas", "NumPy", "scikit-learn", "Jupyter", "Excel"] },
     { group: "Graphics", items: ["wgpu / WGSL", "CUDA", "Three.js", "TouchDesigner", "Blender"] },
-    { group: "Web & infra", items: ["React", "Next.js", "Supabase", "Docker", "Azure"] },
+    { group: "Web & infra", items: ["React", "Next.js", "Supabase", "Docker", "Azure", "ROS", "n8n"] },
   ],
 
   socials: [

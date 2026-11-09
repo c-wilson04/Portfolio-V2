@@ -8,8 +8,8 @@ export type WorkItem = {
   /** Only set when the owner has said where it stands. */
   status?: "Wrapped" | "Archived" | "Active";
   /** One or two words for lists, e.g. "CTO". */
-  roleShort: string;
-  role: string;
+  roleShort?: string;
+  role?: string;
   summary: string;
   what: string;
   did?: string[];
@@ -52,6 +52,19 @@ export const workItems: WorkItem[] = [
     },
   },
   {
+    id: "apple-music",
+    name: "Apple Music Listening Analysis & Recommendations",
+    year: "2026",
+    period: "Jan – Mar 2026",
+    summary: "Cleaning up messy listening data, then recommending songs with cosine similarity.",
+    what: "A behavioral analysis of Apple Music listening data, and a prototype that recommends songs from it.",
+    did: [
+      "Resolved significant data quality issues with null-value pruning and heuristic matching in pandas.",
+      "Built a recommendation prototype that uses cosine similarity to match song vectors to a listener's profile embedding.",
+    ],
+    stack: ["Python", "pandas", "Cosine similarity"],
+  },
+  {
     id: "capstone",
     name: "Multi-Sensor Object Detection & Tracking",
     year: "2025",
@@ -61,11 +74,13 @@ export const workItems: WorkItem[] = [
     summary: "Detecting and tracking objects by fusing Doppler radar with RGB-D camera data.",
     what: "A multi-modal object detection system that integrates Doppler radar spectrograms with RGB-D camera data.",
     did: [
+      "Designed a pipeline using ROS and WSL to talk to the sensor SDKs and pull raw telemetry from the Doppler radar and RGB-D cameras.",
+      "Implemented a deque-based buffer that synchronizes high-frequency radar points with camera frames, so the data meets the ML model's timing requirements.",
       "Extracted velocity and spatiotemporal features using the Doppler effect.",
       "Explored feature extraction, sensor fusion strategies and dataset generation, including real versus synthetic data for testing.",
       "Applied machine learning to target classification and tracking, working on system design, data analysis and experimental evaluation.",
     ],
-    stack: ["Doppler radar", "RGB-D", "Sensor fusion", "Machine learning"],
+    stack: ["ROS", "WSL", "Doppler radar", "RGB-D", "Sensor fusion"],
   },
   {
     id: "protein-ml",
@@ -79,24 +94,25 @@ export const workItems: WorkItem[] = [
     what: "Machine learning models that classify protein interactions with DNA, RNA, both (DRNA), or neither, trained on 8,795 protein sequences.",
     did: [
       "Extracted features from raw biological data with Biopython.",
+      "Built voting and stacking models (SVM, KNN, Gradient Boosting) with scikit-learn.",
       "Addressed class imbalance with oversampling and compared SVM, KNN, Gradient Boosting and MLP using 5-fold cross-validation (MCC, sensitivity, specificity, accuracy).",
       "Built voting and stacking ensembles that placed in the top 5 overall by average MCC and multi-class accuracy, and wrote a technical report.",
     ],
-    stack: ["Python", "Biopython", "Ensembles"],
+    stack: ["Python", "scikit-learn", "Biopython"],
   },
   {
     id: "riva",
     name: "Rivers Intelligence: Riva",
-    year: "2025",
-    period: "From Aug 2025",
+    year: "2025 – 26",
+    period: "Aug 2025 – Jan 2026",
     status: "Wrapped",
     roleShort: "CTO",
     role: "CTO.",
     summary: "An AI agent that worked like a business's assistant: answering calls, following up, and re-engaging leads.",
-    what: "Riva was an automation agent that acted like a dedicated assistant for a business. It answered calls, followed up in real time, and reactivated leads with a human touch. Rivers Intelligence was a startup offering agentic AI solutions to businesses.",
+    what: "Riva was an automation agent that acted like a dedicated assistant for a business. It answered calls, followed up in real time, and reactivated leads with a human touch. Rivers Intelligence was a startup offering agentic AI solutions to enterprise businesses.",
     did: [
       "Led technical strategy and product development.",
-      "Built and maintained a Next.js + TypeScript web application backed by Supabase, including a client-facing dashboard visualizing agent usage and task execution.",
+      "Built and maintained a Next.js + TypeScript web application backed by Supabase, including a client-facing dashboard visualizing real-time agent usage and task execution.",
       "Used Cursor and GitHub for version control and continuous delivery across teams.",
     ],
     stack: ["Next.js", "TypeScript", "Supabase"],

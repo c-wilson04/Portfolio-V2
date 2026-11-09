@@ -39,7 +39,7 @@ export default function Projects() {
           )}
           <div className="feature__body">
             <p className="label">
-              {featuredWork.year} · {featuredWork.roleShort} · {featuredWork.status}
+              {[featuredWork.year, featuredWork.roleShort, featuredWork.status].filter(Boolean).join(" · ")}
             </p>
             <h3>{featuredWork.name}</h3>
             <p>{featuredWork.what}</p>
@@ -70,7 +70,7 @@ export default function Projects() {
                   <span className="row__title">{item.name}</span>
                   <span className="row__summary">{item.summary}</span>
                 </span>
-                <span className="row__role">{item.roleShort}</span>
+                <span className="row__role">{item.roleShort ?? ""}</span>
                 <ArrowRightIcon className="row__arrow" />
               </a>
             </li>

@@ -28,8 +28,9 @@ export default function ContactSection() {
           Say hello.
         </h2>
         <p className="contact__lede">
-          I'm here to meet people. If you're building something, writing about where tech is
-          going, or making visuals, I'd love to hear about it.
+          I'm based in {profile.location}, and I'm here to meet people. If you're building
+          something, writing about where tech is going, or making visuals, I'd love to hear
+          about it.
         </p>
 
         <div className="contact__email">

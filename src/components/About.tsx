@@ -35,6 +35,20 @@ export default function About() {
               </ol>
             </div>
             <div>
+              <h3 className="label">Community</h3>
+              <ol className="background">
+                {profile.community.map((item) => (
+                  <li key={`${item.when}-${item.where}`}>
+                    <span className="background__when">{item.when}</span>
+                    <span>
+                      <span className="background__what">{item.what}</span>
+                      <span className="background__where">{item.where}</span>
+                    </span>
+                  </li>
+                ))}
+              </ol>
+            </div>
+            <div>
               <h3 className="label">Toolkit</h3>
               <dl className="toolkit">
                 {profile.toolkit.map((row) => (

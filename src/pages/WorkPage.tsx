@@ -33,7 +33,7 @@ export default function WorkPage() {
             <article key={item.id} id={item.id} className="work-item" aria-labelledby={`${item.id}-title`}>
               <div className="work-item__meta">
                 <p className="label">{item.period ?? item.year}</p>
-                <p className="work-item__role">{item.role}</p>
+                {item.role && <p className="work-item__role">{item.role}</p>}
                 {item.status && <p className="label">{item.status}</p>}
               </div>
 
