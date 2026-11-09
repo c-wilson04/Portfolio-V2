@@ -18,7 +18,8 @@ export const profile = {
   now: [
     {
       term: "Looking for",
-      text: "A community that keeps innovation, technology, and art fun. Come build it with me.",
+      text: "A community that keeps innovation, technology, and art fun.",
+      link: { label: "Come build it with me", href: "#contact" },
     },
     {
       term: "Exploring",
