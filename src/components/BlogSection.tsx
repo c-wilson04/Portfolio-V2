@@ -1,58 +1,43 @@
-import "./BlogSection.css";
 import { useBlogIndex } from "../hooks/useBlogIndex";
+import { formatPostDate } from "../lib/dates";
+import { postHref } from "../lib/posts";
+import { ArrowRightIcon } from "./Icons";
+import "./BlogSection.css";
+
+const BASE = import.meta.env.BASE_URL;
 
 export default function BlogSection() {
-  const posts = useBlogIndex();
+  const posts = useBlogIndex().slice(0, 3);
 
   return (
-    <section className="blog" id="Blog_">
-      <div className="blog-heading">
-        <p className="subtitle">Writes & Notes</p>
-        <h2>Thoughts on data, art, and live experiences</h2>
-        <p>
-          Short reflections and process notes that keep me learning how to blend
-          sculpture, code, and storytelling in the browser.
-        </p>
-      </div>
-      <div className="blog-grid">
-        {posts.map((post) => (
-          <article key={post.title}>
-            <p className="meta">{post.date}</p>
-            <h3>{post.title}</h3>
-            <p>{post.excerpt}</p>
-            <div className="topic-row">
-              {post.topics.map((topic) => (
-                <span key={topic}>{topic}</span>
-              ))}
-            </div>
-            <a
-              className="blog-btn"
-              href={post.href ?? `/Portfolio-V2/blog-post.html?slug=${post.slug}`}
-            >
-              <span>Read Post</span>
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 16 16"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M1 8H15M15 8L8 1M15 8L8 15"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </a>
-          </article>
-        ))}
-      </div>
-      <div className="blog-cta">
-        <a className="hero-link" href="/Portfolio-V2/blog.html">
-          View full blog
-        </a>
+    <section className="section" id="writing" aria-labelledby="writing-title">
+      <div className="container">
+        <div className="section-head">
+          <div>
+            <p className="label">
+              <b>04</b> Writing
+            </p>
+            <h2 id="writing-title">Notes and write-ups</h2>
+          </div>
+          <a className="arrow-link" href={`${BASE}blog.html`}>
+            All writing
+            <ArrowRightIcon />
+          </a>
+        </div>
+        <ul className="posts">
+          {posts.map((post) => (
+            <li key={post.slug}>
+              <a className="post-row" href={postHref(post)}>
+                <time className="post-row__date">{formatPostDate(post.date)}</time>
+                <span className="post-row__main">
+                  <span className="post-row__title">{post.title}</span>
+                  <span className="post-row__excerpt">{post.excerpt}</span>
+                </span>
+                <ArrowRightIcon className="post-row__arrow" />
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );

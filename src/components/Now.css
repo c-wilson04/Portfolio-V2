@@ -1,0 +1,38 @@
+.now-list {
+  display: grid;
+  border-top: 1px solid var(--line);
+}
+
+.now-list__row {
+  display: grid;
+  grid-template-columns: 11rem minmax(0, 1fr);
+  gap: 8px 24px;
+  padding-block: 18px;
+  border-bottom: 1px solid var(--line);
+}
+
+.now-list dt {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--text-3);
+  padding-top: 3px;
+}
+
+.now-list dd {
+  max-width: 44em;
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--text);
+}
+
+@media (max-width: 640px) {
+  .now-list__row {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .now-list dd {
+    font-size: 17px;
+  }
+}

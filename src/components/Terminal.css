@@ -1,35 +1,41 @@
 .terminal {
-  margin-top: 0.5rem;
-  padding: 0.75rem 1rem;
-  border: 1px dashed rgba(255, 255, 255, 0.25);
-  border-radius: 0.5rem;
-  font-family: ui-monospace, "SF Mono", Menlo, monospace;
-  font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.8);
+  width: 100%;
+  padding: 10px 16px;
+  border: 1px dashed var(--line-strong);
+  border-radius: var(--radius);
+  background: var(--surface);
+  font-family: var(--font-mono);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text);
+  cursor: text;
 }
 
-.terminal .prompt {
-  color: #ff7b00;
+.terminal__log:not(:empty) {
+  padding-top: 6px;
 }
 
-.terminal-out {
-  color: rgba(255, 255, 255, 0.65);
-  margin-bottom: 0.4rem;
+.terminal__prompt {
+  color: var(--accent-text);
+  white-space: nowrap;
 }
 
-.terminal a {
-  color: #ff7b00;
+.terminal__out {
+  color: var(--text-2);
+  margin-bottom: 6px;
+  overflow-wrap: anywhere;
 }
 
-.terminal-row {
+.terminal__row {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 10px;
   min-height: 44px;
 }
 
-.terminal-row input {
+.terminal__row input {
   flex: 1;
+  min-width: 0;
   min-height: 44px;
   background: transparent;
   border: 0;
@@ -37,7 +43,14 @@
   font: inherit;
 }
 
-.terminal-row input:focus-visible {
-  outline: 1px solid #ff7b00;
-  outline-offset: 2px;
+.terminal__row input::placeholder {
+  color: var(--text-3);
+}
+
+.terminal__row input:focus {
+  outline: none;
+}
+
+.terminal:focus-within {
+  border-color: var(--accent);
 }
