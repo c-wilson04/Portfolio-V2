@@ -14,7 +14,7 @@ export default function Projects() {
         <div className="section-head">
           <div>
             <p className="label">
-              <b>02</b> Projects
+              <b>03</b> Projects
             </p>
             <h2 id="projects-title">Things I've built</h2>
           </div>

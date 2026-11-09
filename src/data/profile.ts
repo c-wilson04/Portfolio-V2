@@ -17,25 +17,25 @@ export const profile = {
   nowUpdated: "November 2026",
   now: [
     {
-      term: "Work",
-      text: "Optimization and logistics, mostly in Python, plus analytics tools like Excel.",
-    },
-    {
-      term: "Building",
-      text: "Living Diary, a journal that grows a hand-drawn world out of your words. The newest world is",
-      link: { label: "Acropolis", href: "acropolis/" },
+      term: "Looking for",
+      text: "A community that keeps innovation, technology, and art fun. Come build it with me.",
     },
     {
       term: "Exploring",
       text: "Where tech goes next: GPU hardware and CUDA, quantum computing, and nuclear energy.",
     },
     {
+      term: "Work",
+      text: "Optimization and logistics, mostly in Python, plus analytics tools like Excel.",
+    },
+    {
       term: "Making",
       text: "Visuals in TouchDesigner. It's my getaway, even if it's still scripting and math.",
     },
     {
-      term: "Looking for",
-      text: "A community that keeps innovation, technology, and art fun. Come build it with me.",
+      term: "Building",
+      text: "Living Diary, a journal that grows a hand-drawn world out of your words. The newest world is",
+      link: { label: "Acropolis", href: "acropolis/" },
     },
   ],
 

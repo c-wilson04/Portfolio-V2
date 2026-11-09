@@ -30,8 +30,8 @@ function App() {
       <main id="main">
         <Hero />
         <Now />
-        <Projects />
         <Visuals />
+        <Projects />
         <BlogSection />
         <About />
         <ContactSection />
