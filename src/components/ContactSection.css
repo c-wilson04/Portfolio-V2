@@ -16,6 +16,46 @@
   color: var(--text-2);
 }
 
+/* "Reach out about": two columns of four, hairline rules like the Now list. */
+.help {
+  list-style: none;
+  width: 100%;
+  margin: 32px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 40px;
+}
+
+.help li {
+  display: grid;
+  gap: 6px;
+  align-content: start;
+  padding-block: 20px;
+  border-top: 1px solid var(--line);
+}
+
+.help h3 {
+  font-size: 19px;
+}
+
+.help h3::before {
+  content: "→ ";
+  content: "→ " / ""; /* decorative: screen readers skip it */
+  color: var(--accent-text);
+}
+
+.help p {
+  max-width: 30em;
+  color: var(--text-2);
+}
+
+@media (max-width: 640px) {
+  .help {
+    grid-template-columns: 1fr;
+  }
+}
+
 .contact__email {
   display: flex;
   align-items: center;

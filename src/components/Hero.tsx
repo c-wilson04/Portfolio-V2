@@ -26,8 +26,8 @@ export default function Hero() {
             Say hello
             <ArrowRightIcon />
           </a>
-          <a className="btn btn--ghost" href="#now">
-            What I'm up to
+          <a className="btn btn--ghost" href="#help">
+            How I can help
           </a>
         </div>
       </div>

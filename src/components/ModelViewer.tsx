@@ -66,8 +66,13 @@ export default function ModelViewer({ src, label, onReady }: ModelViewerProps) {
 
     let halfHeight = 1;
     let turnRadius = 1;
+    // Only redraw when something changed (matters when the model holds still).
+    let needsRender = true;
 
-    const render = () => renderer.render(scene, camera);
+    const render = () => {
+      renderer.render(scene, camera);
+      needsRender = false;
+    };
 
     // Fit the whole model, at any angle of its turn, inside the frame.
     const frameModel = () => {
@@ -97,9 +102,14 @@ export default function ModelViewer({ src, label, onReady }: ModelViewerProps) {
       if (!visible || !loaded || document.hidden) return;
       if (!dragging) {
         velocity *= Math.pow(0.04, dt); // ease out after a flick
-        pivot.rotation.y += (reduceMotion ? 0 : SPIN) * dt + velocity * dt;
+        if (Math.abs(velocity) < 0.001) velocity = 0;
+        const step = (reduceMotion ? 0 : SPIN) * dt + velocity * dt;
+        if (step !== 0) {
+          pivot.rotation.y += step;
+          needsRender = true;
+        }
       }
-      render();
+      if (needsRender) render();
     };
 
     new GLTFLoader().load(
@@ -135,7 +145,7 @@ export default function ModelViewer({ src, label, onReady }: ModelViewerProps) {
       lastX = event.clientX;
       pivot.rotation.y += dx * 0.01;
       velocity = dx * 0.6;
-      if (reduceMotion || !visible) render();
+      needsRender = true;
     };
     const onPointerUp = (event: PointerEvent) => {
       dragging = false;
