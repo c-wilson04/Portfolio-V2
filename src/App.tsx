@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Now from "./components/Now";
 import Projects from "./components/Projects";
+import Visuals from "./components/Visuals";
 import BlogSection from "./components/BlogSection";
 import About from "./components/About";
 import ContactSection from "./components/ContactSection";
@@ -30,6 +31,7 @@ function App() {
         <Hero />
         <Now />
         <Projects />
+        <Visuals />
         <BlogSection />
         <About />
         <ContactSection />

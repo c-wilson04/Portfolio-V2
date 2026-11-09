@@ -5,6 +5,7 @@ export const BASE = import.meta.env.BASE_URL; // "/Portfolio-V2/"
 export const navLinks = [
   { label: "Now", href: `${BASE}#now` },
   { label: "Projects", href: `${BASE}#projects` },
+  { label: "Visuals", href: `${BASE}#visuals` },
   { label: "Writing", href: `${BASE}#writing` },
   { label: "About", href: `${BASE}#about` },
   { label: "Contact", href: `${BASE}#contact` },

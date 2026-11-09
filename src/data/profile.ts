@@ -39,6 +39,19 @@ export const profile = {
     },
   ],
 
+  // The Visuals section. Paths are relative to public/.
+  visuals: {
+    heading: "Made for fun",
+    text: "Art is my hobby. Lately TouchDesigner is my getaway, even if it's still scripting and math. Here's a recent piece.",
+    piece: {
+      video: "visuals/dance-loop.mp4",
+      poster: "visuals/dance-loop-poster.webp",
+      caption: "A figure dancing through a cathedral, a node graph, a circuit board, a road map and more",
+      year: "2026",
+      alt: "A white silhouette of a dancer moving in front of backdrops that change every few seconds: a cathedral collage, a web of node-graph lines, a copper circuit board, a road map, and a circuit schematic on parchment.",
+    },
+  },
+
   about: [
     "I graduated from Virginia Commonwealth University in May 2026 with a B.S. in computer science, focused on data science and machine learning. Along the way I led engineering at an AI startup, did AI research, and built test automation tools in C#. These days my work is optimization and logistics.",
     "Outside of work I make things: shader worlds for Living Diary, visuals in TouchDesigner, and 3D pieces in Blender. I'm also always reading about what's next, from GPU architecture to quantum computing to nuclear power.",

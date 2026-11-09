@@ -15,7 +15,7 @@ export default function BlogSection() {
         <div className="section-head">
           <div>
             <p className="label">
-              <b>03</b> Writing
+              <b>04</b> Writing
             </p>
             <h2 id="writing-title">Notes and write-ups</h2>
           </div>

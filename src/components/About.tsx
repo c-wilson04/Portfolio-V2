@@ -8,7 +8,7 @@ export default function About() {
         <div className="section-head">
           <div>
             <p className="label">
-              <b>04</b> About
+              <b>05</b> About
             </p>
             <h2 id="about-title">A bit about me</h2>
           </div>

@@ -12,7 +12,8 @@ Most changes are a single file:
 
 | What | Where |
 | --- | --- |
-| Intro, Now section, About, background, toolkit, links | `src/data/profile.ts` |
+| Intro, Now, Visuals, About, background, toolkit, links | `src/data/profile.ts` |
+| The Visuals video and its poster | `public/visuals/` |
 | Projects (home page list and the Projects page) | `src/data/work.ts` |
 | Small GitHub repos | `src/data/repos.ts` |
 | Posts bundled in this repo | `src/data/blogPosts.ts`, `src/data/posts/` |

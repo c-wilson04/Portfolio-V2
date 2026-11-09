@@ -22,7 +22,7 @@ export default function ContactSection() {
     <section className="section contact" id="contact" aria-labelledby="contact-title">
       <div className="container">
         <p className="label">
-          <b>05</b> Contact
+          <b>06</b> Contact
         </p>
         <h2 id="contact-title" className="contact__title">
           Say hello.
