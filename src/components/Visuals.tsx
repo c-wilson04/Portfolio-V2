@@ -14,7 +14,7 @@ export default function Visuals() {
       <div className="container visuals">
         <div className="visuals__copy">
           <p className="label">
-            <b>03</b> Visuals
+            <b>02</b> Visuals
           </p>
           <h2 id="visuals-title">{heading}</h2>
           <p className="visuals__text">{text}</p>

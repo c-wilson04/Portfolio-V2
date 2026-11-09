@@ -28,10 +28,18 @@ export default function ContactSection() {
           Say hello.
         </h2>
         <p className="contact__lede">
-          I'm based in {profile.location}, and I'm here to meet people. If you're building
-          something, writing about where tech is going, or making visuals, I'd love to hear
-          about it.
+          I'm based in {profile.location}. Reach out about any of these, or just to talk about
+          what you're building.
         </p>
+
+        <ul className="help" id="help" aria-label="What you can reach out about">
+          {profile.helpWith.map((item) => (
+            <li key={item.title}>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </li>
+          ))}
+        </ul>
 
         <div className="contact__email">
           <a href={`mailto:${profile.email}`}>{profile.email}</a>

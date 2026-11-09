@@ -5,37 +5,58 @@ export const profile = {
   name: "Charles Wilson",
   alias: "Q.Wrld",
   email: "charles.ikwilson@gmail.com",
-  location: "Richmond, VA",
+  location: "the DC area (the DMV)",
   tagline: "Optimization · Graphics · Visuals",
 
   intro:
-    "I work in optimization and logistics, mostly in Python and data tools. On my own time I build Living Diary, a journal that turns your words into a world, and I make visuals in TouchDesigner.",
+    "I work in optimization and logistics, mostly in Python and other industry data tools. On my own time I build new projects, research cutting-edge technology, and make visual art in TouchDesigner.",
   invite:
-    "I'm not looking for a job. I'm looking for people. If you're building something, I'd love to see it.",
+    "I'm looking to grow an inspiring community around those interests to help keep innovation, technology, and art actually fun. Yes, fun. Scroll down to learn more.",
 
   // The "Now" section. Bump `nowUpdated` whenever you change these.
   nowUpdated: "November 2026",
   now: [
     {
-      term: "Work",
-      text: "Optimization and logistics, mostly in Python, plus analytics tools like Excel.",
-    },
-    {
-      term: "Building",
-      text: "Living Diary, a journal that grows a hand-drawn world out of your words. The newest world is",
-      link: { label: "Acropolis", href: "acropolis/" },
+      term: "Looking for",
+      text: "A community that keeps innovation, technology, and art fun.",
+      link: { label: "Come build it with me", href: "#contact" },
     },
     {
       term: "Exploring",
       text: "Where tech goes next: GPU hardware and CUDA, quantum computing, and nuclear energy.",
     },
     {
+      term: "Work",
+      text: "Optimization and logistics, mostly in Python, plus analytics tools like Excel.",
+    },
+    {
       term: "Making",
       text: "Visuals in TouchDesigner. It's my getaway, even if it's still scripting and math.",
     },
     {
-      term: "Looking for",
-      text: "People. I want to see what others are building right now.",
+      term: "Building",
+      text: "Living Diary, a journal that grows a hand-drawn world out of your words. The newest world is",
+      link: { label: "Acropolis", href: "acropolis/" },
+    },
+  ],
+
+  // "Reach out about" in the Contact section; the hero's second button links here.
+  helpWith: [
+    {
+      title: "Project help",
+      text: "Stuck on a build, or want a second set of eyes? Send it over.",
+    },
+    {
+      title: "Technical questions",
+      text: "Python, data, optimization, graphics, or anything else you see on this site.",
+    },
+    {
+      title: "Organizations & events",
+      text: "Invite me to take part in your organization, meetup, panel, or event.",
+    },
+    {
+      title: "Tech education",
+      text: "Helping the community stay educated on technology, through talks, workshops, and plain-English explainers.",
     },
   ],
 
