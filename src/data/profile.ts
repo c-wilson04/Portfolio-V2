@@ -42,12 +42,15 @@ export const profile = {
   // The Visuals section. Paths are relative to public/.
   visuals: {
     heading: "Made for fun",
-    text: "Art is my hobby. Lately TouchDesigner is my getaway, even if it's still scripting and math. Here's a recent piece.",
+    text: "Art is my hobby. Lately TouchDesigner is my getaway, even if it's still scripting and math.",
     piece: {
+      title: "Digital study / .1",
+      tools: "TouchDesigner · DaVinci Resolve",
+      year: "2026",
+      statement:
+        "I've been exploring just how much of our lives is blended with tech. It's a great amount, as we all know, but depicting it is another actualization I want to give this symbiotic relationship that exists.",
       video: "visuals/dance-loop.mp4",
       poster: "visuals/dance-loop-poster.webp",
-      caption: "A figure dancing through a cathedral, a node graph, a circuit board, a road map and more",
-      year: "2026",
       alt: "A white silhouette of a dancer moving in front of backdrops that change every few seconds: a cathedral collage, a web of node-graph lines, a copper circuit board, a road map, and a circuit schematic on parchment.",
     },
   },

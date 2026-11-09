@@ -21,6 +21,27 @@
   color: var(--text-2);
 }
 
+/* The piece's wall text: title, tools, and the artist's statement. */
+.visuals__piece {
+  display: grid;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.visuals__piece h3 {
+  font-size: 21px;
+}
+
+.visuals__statement {
+  margin: 10px 0 4px;
+  padding-left: 16px;
+  border-left: 2px solid var(--accent);
+  max-width: 30em;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-2);
+}
+
 .visuals__figure {
   display: grid;
   gap: 12px;
