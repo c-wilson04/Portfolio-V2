@@ -1,0 +1,1 @@
+import{r as o}from"./Navbar-uV8DdTZg.js";import{l,a as n}from"./blogAPI-yG5LfmoA.js";function u(){const[t,s]=o.useState(l);return o.useEffect(()=>{let e=!1;return n().then(r=>{e||s(r)}).catch(()=>{}),()=>{e=!0}},[]),t}const a="/Portfolio-V2/",p=t=>t.href??`${a}blog-post.html?slug=${encodeURIComponent(t.slug)}`;export{p,u};
